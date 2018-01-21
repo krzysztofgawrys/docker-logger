@@ -41,7 +41,11 @@ const addFetchedData = () => {
                 return fetchDataFromURL(`${server.URL}/containers/json`)
                     .then((data) => {
                         const dockers = parser(data.data);
-                        dispatch(addDockers(server.NAME, dockers));
+                        if (dockers.length > 0) {
+                            dispatch(addDockers(server.NAME, dockers));
+                        } else {
+                            dispatch(addError(server.NAME, `Docker not detected for ${server.NAME}`));
+                        }
                     })
                     .catch(() => {
                         dispatch(addError(server.NAME, `Docker not detected for ${server.URL}`));

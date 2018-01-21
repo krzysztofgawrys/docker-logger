@@ -28,6 +28,7 @@ const dockerReducer = (state = initialState, action) => {
             return {
                 ...state,
                 servers: [...state.servers, {
+                    name: action.name,
                     error: action.error
                 }]
             };
