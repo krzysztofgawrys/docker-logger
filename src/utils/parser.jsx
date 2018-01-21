@@ -41,7 +41,7 @@ const getIcon = (state) => {
     const green = {
         color: 'green'
     };
-    return (state === 'running') ? <Icon type="check-circle" style={green}/> : <Icon type="close-circle" style={red}/>;
+    return (state === 'running') ? <Icon type="check-circle" style={green} /> : <Icon type="close-circle" style={red} />;
 };
 
 const networkParser = (network) => {

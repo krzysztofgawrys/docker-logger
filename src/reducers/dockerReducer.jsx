@@ -1,6 +1,9 @@
-import {SET_DOCKERS, SET_DOCKERS_ERROR} from '../actions/dockers';
+import {SET_DOCKERS, SET_DOCKERS_ERROR, NO_DOCKERS} from '../actions/dockers';
 
-const initialState = {servers: []};
+const initialState = {
+    servers: [],
+    message: null
+};
 
 const dockerReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -11,6 +14,13 @@ const dockerReducer = (state = initialState, action) => {
                     name: action.name,
                     list: action.dockers
                 }]
+            };
+        }
+
+        case NO_DOCKERS: {
+            return {
+                ...state,
+                message: action.message
             };
         }
 

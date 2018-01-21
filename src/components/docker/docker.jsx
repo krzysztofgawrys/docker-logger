@@ -1,16 +1,16 @@
 import React from 'react';
 import {Row, Col} from 'antd';
 import {LazyStream, ScrollFollow} from 'react-lazylog';
-import {parseName, getIcon, networkParser} from '../../utils/parser';
+import {parseName, networkParser} from '../../utils/parser';
 
 const logsOutput = (id, URL) => {
     let ret = null;
     if (id) {
         ret = (
-            <div className='logsSpace'>
-                <ScrollFollow startFollowing={true}>
+            <div className="logsSpace">
+                <ScrollFollow startFollowing>
                     {({follow, onScroll}) => (
-                        <LazyStream url={URL} follow={follow} onScroll={onScroll}/>
+                        <LazyStream url={URL} follow={follow} onScroll={onScroll} />
                     )}
                 </ScrollFollow>
             </div>

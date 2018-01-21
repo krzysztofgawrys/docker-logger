@@ -60,7 +60,8 @@ export default class index extends Component {
                             padding: 24,
                             background: '#fff',
                             minHeight: 360
-                        }}>
+                        }}
+                        >
                             {this.props.children}
                         </div>
                     </Content>

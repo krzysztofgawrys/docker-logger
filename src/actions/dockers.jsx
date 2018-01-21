@@ -4,12 +4,20 @@ import config from '../../config.json';
 
 const SET_DOCKERS = 'SET_DOCKERS';
 const SET_DOCKERS_ERROR = 'SET_DOCKERS_ERROR';
+const NO_DOCKERS = 'NO_DOCKERS';
 
 const addDockers = (name, dockers) => {
     return {
         type: SET_DOCKERS,
         name,
         dockers
+    };
+};
+
+const addNoDockers = (message) => {
+    return {
+        type: NO_DOCKERS,
+        message
     };
 };
 
@@ -39,14 +47,19 @@ const addFetchedData = () => {
                         dispatch(addError(server.NAME, `Docker not detected for ${server.URL}`));
                     });
             });
+        } else {
+            dispatch(addNoDockers('Dockers not detected'));
         }
     };
 };
 
 export {
     SET_DOCKERS,
+    SET_DOCKERS_ERROR,
+    NO_DOCKERS,
     addDockers,
     fetchDataFromURL,
     addFetchedData,
-    addError
+    addError,
+    addNoDockers
 };
