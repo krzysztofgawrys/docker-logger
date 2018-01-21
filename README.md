@@ -18,7 +18,7 @@ server {
                  }
          }
 ```
-1.Add servers to config.json 
+1. Add servers to config.json 
 ```json 
 [
   {
