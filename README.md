@@ -1,6 +1,6 @@
 
 # Dockers Logger 
-Application to show dockers logs into browser
+Application to display logs from dockers
 ## Getting started
 1. ```git clone git@github.com:dmarczydlo/react-starter.git```
 1. ```yarn install```
