@@ -1,5 +1,5 @@
 
-# Dockers Logger 
+# Docker Logger 
 Application to display logs from dockers
 ## Getting started
 1. ```git clone git@github.com:dmarczydlo/react-starter.git```
