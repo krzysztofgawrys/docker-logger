@@ -1,0 +1,37 @@
+{
+  "presets": [
+    [
+      "env",
+      {
+        "targets": {
+          "browsers": [
+            "last 2 versions",
+            "ie >= 10"
+          ]
+        }
+      }
+    ],
+    "react",
+    "stage-0"
+  ],
+  "env": {
+    "development": {
+      "presets": [
+        "react-hmre"
+      ]
+    }
+  },
+  "plugins": [
+    [
+      "transform-runtime",
+      "transform-async-generator-functions",
+      "transform-function-bind",
+      "typecheck",
+      {
+        "disable": {
+          "production": true
+        }
+      }
+    ]
+  ]
+}

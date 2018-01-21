@@ -1,0 +1,740 @@
+[
+  {
+    "Id": "7a3182f275e7311ca864091f24280bccc778639a17a775d1311a6c40ff4846cb",
+    "Names": [
+      "/agency_backend_service"
+    ],
+    "Image": "agencystage_backend_service",
+    "ImageID": "sha256:8585a98e5ccec8161d34106fe7328bef69208aec82cf9fd30dd71f8a97667145",
+    "Command": "/bin/sh -c 'rm -rf ./node_modules     && source $NVM_DIR/nvm.sh     && npm install -g gulp gulp-cli pm2 yarn     && npm install     && node ./node_modules/gulp/bin/gulp.js;     bash'",
+    "Created": 1516351277,
+    "Ports": [
+      {
+        "IP": "0.0.0.0",
+        "PrivatePort": 3333,
+        "PublicPort": 6333,
+        "Type": "tcp"
+      }
+    ],
+    "Labels": {
+      "com.docker.compose.config-hash": "7abd5b85e67936ca08eb8fb307c236b89670a40741ed071e657aeaf8befcd5c6",
+      "com.docker.compose.container-number": "1",
+      "com.docker.compose.oneoff": "False",
+      "com.docker.compose.project": "agencystage",
+      "com.docker.compose.service": "backend_service",
+      "com.docker.compose.version": "1.17.0"
+    },
+    "State": "running",
+    "Status": "Up 25 hours",
+    "HostConfig": {
+      "NetworkMode": "agencystage_agency_network"
+    },
+    "NetworkSettings": {
+      "Networks": {
+        "agencystage_agency_network": {
+          "IPAMConfig": {
+            "IPv4Address": "172.20.0.2"
+          },
+          "Links": null,
+          "Aliases": null,
+          "NetworkID": "0b6bf3466d63664ac6a90e5d5dacb60521380c9341395b1c231fdd2a40748f55",
+          "EndpointID": "52663f32d5fa4c8f4b99f1cc3550b36e8966c997f1b1ec0a199d4e627478c6d5",
+          "Gateway": "172.20.0.1",
+          "IPAddress": "172.20.0.2",
+          "IPPrefixLen": 24,
+          "IPv6Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "MacAddress": "02:42:ac:14:00:02",
+          "DriverOpts": null
+        }
+      }
+    },
+    "Mounts": [
+      {
+        "Type": "bind",
+        "Source": "/home/jenkins/workspace/Agency.stage/backend_service",
+        "Destination": "/var/www/backend_service.xdev",
+        "Mode": "rw",
+        "RW": true,
+        "Propagation": "rprivate"
+      }
+    ]
+  },
+  {
+    "Id": "df99fa9be37df6fd3ebdb7b891572f5bb0e29f60fd0fb67b6e2f4f2ebb3ca120",
+    "Names": [
+      "/agency_truffle_service"
+    ],
+    "Image": "agencystage_truffle_service",
+    "ImageID": "sha256:d88e10ea2343ede42978f7dd448a7afb78dc759ca816c1762baae33cb35af9d5",
+    "Command": "sh -c 'rm -rf ./node_modules && source /usr/local/nvm/nvm.sh && npm install -g truffle solium yarn && yarn install && bash'",
+    "Created": 1516351276,
+    "Ports": [],
+    "Labels": {
+      "com.docker.compose.config-hash": "92173a6aca5614c9d8bc12be8b25bf59535369f1fb0f1688e5e62f143dd29ae8",
+      "com.docker.compose.container-number": "1",
+      "com.docker.compose.oneoff": "False",
+      "com.docker.compose.project": "agencystage",
+      "com.docker.compose.service": "truffle_service",
+      "com.docker.compose.version": "1.17.0"
+    },
+    "State": "running",
+    "Status": "Up 25 hours",
+    "HostConfig": {
+      "NetworkMode": "agencystage_agency_network"
+    },
+    "NetworkSettings": {
+      "Networks": {
+        "agencystage_agency_network": {
+          "IPAMConfig": {
+            "IPv4Address": "172.20.0.4"
+          },
+          "Links": null,
+          "Aliases": null,
+          "NetworkID": "0b6bf3466d63664ac6a90e5d5dacb60521380c9341395b1c231fdd2a40748f55",
+          "EndpointID": "330f875b69344aadb64f2a734f8d04eb29ccd3ef90a566885a6e81fb0693acd3",
+          "Gateway": "172.20.0.1",
+          "IPAddress": "172.20.0.4",
+          "IPPrefixLen": 24,
+          "IPv6Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "MacAddress": "02:42:ac:14:00:04",
+          "DriverOpts": null
+        }
+      }
+    },
+    "Mounts": [
+      {
+        "Type": "bind",
+        "Source": "/home/jenkins/workspace/Agency.stage/truffle_service",
+        "Destination": "/var/www/truffle_service.xdev",
+        "Mode": "rw",
+        "RW": true,
+        "Propagation": "rprivate"
+      }
+    ]
+  },
+  {
+    "Id": "f4d6502a7a3992c5c1882e8832576b53b4eeead3a77ad95cfcea271fe32e9d15",
+    "Names": [
+      "/agency_geth_service"
+    ],
+    "Image": "agencystage_geth_service",
+    "ImageID": "sha256:cfca149a6791b8a59fd6a0a64e77ae00c1d7b77f35556db36d2079d684f2c67b",
+    "Command": "/bin/sh -c /root/start.sh",
+    "Created": 1516351276,
+    "Ports": [
+      {
+        "IP": "0.0.0.0",
+        "PrivatePort": 30303,
+        "PublicPort": 30303,
+        "Type": "tcp"
+      },
+      {
+        "IP": "0.0.0.0",
+        "PrivatePort": 30303,
+        "PublicPort": 30303,
+        "Type": "udp"
+      },
+      {
+        "IP": "0.0.0.0",
+        "PrivatePort": 8545,
+        "PublicPort": 8545,
+        "Type": "tcp"
+      }
+    ],
+    "Labels": {
+      "com.docker.compose.config-hash": "d80214c5fa30ad46fe5c9bf9dd20980e33518dd8f2fe00d434ead24bd3c1b9ed",
+      "com.docker.compose.container-number": "1",
+      "com.docker.compose.oneoff": "False",
+      "com.docker.compose.project": "agencystage",
+      "com.docker.compose.service": "geth_service",
+      "com.docker.compose.version": "1.17.0"
+    },
+    "State": "running",
+    "Status": "Up 25 hours",
+    "HostConfig": {
+      "NetworkMode": "agencystage_agency_network"
+    },
+    "NetworkSettings": {
+      "Networks": {
+        "agencystage_agency_network": {
+          "IPAMConfig": {
+            "IPv4Address": "172.20.0.5"
+          },
+          "Links": null,
+          "Aliases": null,
+          "NetworkID": "0b6bf3466d63664ac6a90e5d5dacb60521380c9341395b1c231fdd2a40748f55",
+          "EndpointID": "c8b33588c90019e74ae69fd0a9343f6b364f37a9534decef56e9607631570d31",
+          "Gateway": "172.20.0.1",
+          "IPAddress": "172.20.0.5",
+          "IPPrefixLen": 24,
+          "IPv6Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "MacAddress": "02:42:ac:14:00:05",
+          "DriverOpts": null
+        }
+      }
+    },
+    "Mounts": [
+      {
+        "Type": "bind",
+        "Source": "/etc/localtime",
+        "Destination": "/etc/localtime",
+        "Mode": "ro",
+        "RW": false,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/home/jenkins/workspace/Agency.stage/geth_service/configs/keystore",
+        "Destination": "/root/.ethereum/keystore",
+        "Mode": "rw",
+        "RW": true,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/home/jenkins/workspace/Agency.stage/geth_service/configs/static-nodes.json",
+        "Destination": "/root/.ethereum/static-nodes.json",
+        "Mode": "ro",
+        "RW": false,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/home/jenkins/workspace/Agency.stage/geth_service/configs/trusted-nodes.json",
+        "Destination": "/root/.ethereum/trusted-nodes.json",
+        "Mode": "ro",
+        "RW": false,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/home/jenkins/workspace/Agency.stage/geth_service/configs/genesis.json",
+        "Destination": "/root/genesis.json",
+        "Mode": "ro",
+        "RW": false,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/home/jenkins/workspace/Agency.stage/geth_service/configs/passwd",
+        "Destination": "/root/passwd",
+        "Mode": "ro",
+        "RW": false,
+        "Propagation": "rprivate"
+      }
+    ]
+  },
+  {
+    "Id": "25cb1187377a53e9a134c8831b748b30d9a9bbc2c583de472e42a92b4f0fb8f3",
+    "Names": [
+      "/agency_mongodb"
+    ],
+    "Image": "mongo:latest",
+    "ImageID": "sha256:a0c8a8d1f8ec7cf4533a385725b394bef991eba90c37093cc82d42789492c84a",
+    "Command": "docker-entrypoint.sh mongod --smallfiles",
+    "Created": 1516351276,
+    "Ports": [
+      {
+        "IP": "0.0.0.0",
+        "PrivatePort": 27017,
+        "PublicPort": 27017,
+        "Type": "tcp"
+      }
+    ],
+    "Labels": {
+      "com.docker.compose.config-hash": "427d5a8b7aac429df7d74de71d3768bb7b2c11c1f00feb80e8234bca3e8f5a38",
+      "com.docker.compose.container-number": "1",
+      "com.docker.compose.oneoff": "False",
+      "com.docker.compose.project": "agencystage",
+      "com.docker.compose.service": "mongodb",
+      "com.docker.compose.version": "1.17.0"
+    },
+    "State": "running",
+    "Status": "Up 25 hours",
+    "HostConfig": {
+      "NetworkMode": "agencystage_agency_network"
+    },
+    "NetworkSettings": {
+      "Networks": {
+        "agencystage_agency_network": {
+          "IPAMConfig": {
+            "IPv4Address": "172.20.0.6"
+          },
+          "Links": null,
+          "Aliases": null,
+          "NetworkID": "0b6bf3466d63664ac6a90e5d5dacb60521380c9341395b1c231fdd2a40748f55",
+          "EndpointID": "83ed08322d4f84473af28708c5638b4b8091a18d595752618da5c92bfff4c0dc",
+          "Gateway": "172.20.0.1",
+          "IPAddress": "172.20.0.6",
+          "IPPrefixLen": 24,
+          "IPv6Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "MacAddress": "02:42:ac:14:00:06",
+          "DriverOpts": null
+        }
+      }
+    },
+    "Mounts": [
+      {
+        "Type": "volume",
+        "Name": "1074d561ea44fbebc17ab400e0a6d8ee0a547d4a21871697389aceea8c76b5af",
+        "Source": "",
+        "Destination": "/data/configdb",
+        "Driver": "local",
+        "Mode": "",
+        "RW": true,
+        "Propagation": ""
+      },
+      {
+        "Type": "volume",
+        "Name": "5e8d0aae811ecb040df4e001b2fa60c06a9eb00c932984e0b92eafd9df532761",
+        "Source": "",
+        "Destination": "/data/db",
+        "Driver": "local",
+        "Mode": "",
+        "RW": true,
+        "Propagation": ""
+      }
+    ]
+  },
+  {
+    "Id": "a8072b0b303bace3e52c5f919d4a5622b5f6e9f5ff1528cea9bc2c7c4a9b81e9",
+    "Names": [
+      "/agency_frontend_service"
+    ],
+    "Image": "agencystage_frontend_service",
+    "ImageID": "sha256:8ffefbf2055b6d940b912ad356ac4ab7157e5ed930dcb4c0601be7637b399e30",
+    "Command": "sh -c 'rm -rf ./node_modules && ./scripts/start.sh && source /usr/local/nvm/nvm.sh && npm install -g yarn && yarn global add node-gyp && yarn install && NODE_ENV=staging yarn start'",
+    "Created": 1516351276,
+    "Ports": [
+      {
+        "IP": "0.0.0.0",
+        "PrivatePort": 3000,
+        "PublicPort": 3000,
+        "Type": "tcp"
+      }
+    ],
+    "Labels": {
+      "com.docker.compose.config-hash": "879399c76bfb81ce13a1662d48ef70e5c6435cce9ef3b44e46c603e7443f4f91",
+      "com.docker.compose.container-number": "1",
+      "com.docker.compose.oneoff": "False",
+      "com.docker.compose.project": "agencystage",
+      "com.docker.compose.service": "frontend_service",
+      "com.docker.compose.version": "1.17.0"
+    },
+    "State": "running",
+    "Status": "Up 25 hours",
+    "HostConfig": {
+      "NetworkMode": "agencystage_agency_network"
+    },
+    "NetworkSettings": {
+      "Networks": {
+        "agencystage_agency_network": {
+          "IPAMConfig": {
+            "IPv4Address": "172.20.0.3"
+          },
+          "Links": null,
+          "Aliases": null,
+          "NetworkID": "0b6bf3466d63664ac6a90e5d5dacb60521380c9341395b1c231fdd2a40748f55",
+          "EndpointID": "377fc06b77c6056e4d9b3a7d5ad1e053474d30e894d81a78307891656e85ecea",
+          "Gateway": "172.20.0.1",
+          "IPAddress": "172.20.0.3",
+          "IPPrefixLen": 24,
+          "IPv6Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "MacAddress": "02:42:ac:14:00:03",
+          "DriverOpts": null
+        }
+      }
+    },
+    "Mounts": [
+      {
+        "Type": "bind",
+        "Source": "/home/jenkins/workspace/Agency.stage/frontend_service",
+        "Destination": "/var/www/frontend_service.xdev",
+        "Mode": "rw",
+        "RW": true,
+        "Propagation": "rprivate"
+      }
+    ]
+  },
+  {
+    "Id": "443bdb0a0949f5c22949a87a6fe089c793e7b4b70c57a51ccbc4dcc4a7301b20",
+    "Names": [
+      "/testing_agency_backend_service"
+    ],
+    "Image": "agency_testing_backend_service",
+    "ImageID": "sha256:8585a98e5ccec8161d34106fe7328bef69208aec82cf9fd30dd71f8a97667145",
+    "Command": "/bin/sh -c 'rm -rf ./node_modules     && source $NVM_DIR/nvm.sh     && npm install -g gulp gulp-cli pm2 yarn     && npm install     && node ./node_modules/gulp/bin/gulp.js;     bash'",
+    "Created": 1516285549,
+    "Ports": [
+      {
+        "IP": "0.0.0.0",
+        "PrivatePort": 3333,
+        "PublicPort": 6343,
+        "Type": "tcp"
+      }
+    ],
+    "Labels": {
+      "com.docker.compose.config-hash": "fd6b48213ac5b31a79f1f836ff3baefa1cdfd6f1f8cb990ebf501196cf0bcaa3",
+      "com.docker.compose.container-number": "1",
+      "com.docker.compose.oneoff": "False",
+      "com.docker.compose.project": "agency",
+      "com.docker.compose.service": "testing_backend_service",
+      "com.docker.compose.version": "1.17.0"
+    },
+    "State": "running",
+    "Status": "Up 44 hours",
+    "HostConfig": {
+      "NetworkMode": "agency_testing_agency_network"
+    },
+    "NetworkSettings": {
+      "Networks": {
+        "agency_testing_agency_network": {
+          "IPAMConfig": {
+            "IPv4Address": "172.21.0.2"
+          },
+          "Links": null,
+          "Aliases": null,
+          "NetworkID": "52b682f3ece8b55dc0a6ddf5d6cd76fa2733c0d7d7194a5eed4abf021125f7dd",
+          "EndpointID": "382def8a9f4f7b48afcb30fcfd81ca64e4bbd8aa2512b0a3a5544c8a74009e08",
+          "Gateway": "172.21.0.1",
+          "IPAddress": "172.21.0.2",
+          "IPPrefixLen": 24,
+          "IPv6Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "MacAddress": "02:42:ac:15:00:02",
+          "DriverOpts": null
+        }
+      }
+    },
+    "Mounts": [
+      {
+        "Type": "bind",
+        "Source": "/home/jenkins/workspace/Agency/backend_service",
+        "Destination": "/var/www/backend_service.xdev",
+        "Mode": "rw",
+        "RW": true,
+        "Propagation": "rprivate"
+      }
+    ]
+  },
+  {
+    "Id": "5ade34065041d03c5b9a8987219738f0a79743fb40f3a2ef466a4438e70804bf",
+    "Names": [
+      "/testing_agency_frontend_service"
+    ],
+    "Image": "agency_testing_frontend_service",
+    "ImageID": "sha256:8ffefbf2055b6d940b912ad356ac4ab7157e5ed930dcb4c0601be7637b399e30",
+    "Command": "sh -c 'rm -rf ./node_modules && ./scripts/start.sh && source /usr/local/nvm/nvm.sh && npm install -g yarn && yarn global add node-gyp && yarn install && NODE_ENV=testing yarn start'",
+    "Created": 1516285547,
+    "Ports": [
+      {
+        "PrivatePort": 3000,
+        "Type": "tcp"
+      },
+      {
+        "IP": "0.0.0.0",
+        "PrivatePort": 3010,
+        "PublicPort": 3010,
+        "Type": "tcp"
+      }
+    ],
+    "Labels": {
+      "com.docker.compose.config-hash": "10685270abfbc8402f44789d2a249c3a98a771c64855a8e3457c32ae4018a8a0",
+      "com.docker.compose.container-number": "1",
+      "com.docker.compose.oneoff": "False",
+      "com.docker.compose.project": "agency",
+      "com.docker.compose.service": "testing_frontend_service",
+      "com.docker.compose.version": "1.17.0"
+    },
+    "State": "running",
+    "Status": "Up 44 hours",
+    "HostConfig": {
+      "NetworkMode": "agency_testing_agency_network"
+    },
+    "NetworkSettings": {
+      "Networks": {
+        "agency_testing_agency_network": {
+          "IPAMConfig": {
+            "IPv4Address": "172.21.0.3"
+          },
+          "Links": null,
+          "Aliases": null,
+          "NetworkID": "52b682f3ece8b55dc0a6ddf5d6cd76fa2733c0d7d7194a5eed4abf021125f7dd",
+          "EndpointID": "d449f17819d68b5e0f43c24bcd89530632a37cb7249fad8bd5438d014e9a67a4",
+          "Gateway": "172.21.0.1",
+          "IPAddress": "172.21.0.3",
+          "IPPrefixLen": 24,
+          "IPv6Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "MacAddress": "02:42:ac:15:00:03",
+          "DriverOpts": null
+        }
+      }
+    },
+    "Mounts": [
+      {
+        "Type": "bind",
+        "Source": "/home/jenkins/workspace/Agency/frontend_service",
+        "Destination": "/var/www/frontend_service.xdev",
+        "Mode": "rw",
+        "RW": true,
+        "Propagation": "rprivate"
+      }
+    ]
+  },
+  {
+    "Id": "5c0f9d3963e42e28e7eadfad59dd57a862a5e83e6039e119ce046aa5e21e9744",
+    "Names": [
+      "/testing_agency_geth_service"
+    ],
+    "Image": "agency_testing_geth_service",
+    "ImageID": "sha256:cfca149a6791b8a59fd6a0a64e77ae00c1d7b77f35556db36d2079d684f2c67b",
+    "Command": "/bin/sh -c /root/start.sh",
+    "Created": 1516285547,
+    "Ports": [
+      {
+        "IP": "0.0.0.0",
+        "PrivatePort": 30303,
+        "PublicPort": 30313,
+        "Type": "tcp"
+      },
+      {
+        "IP": "0.0.0.0",
+        "PrivatePort": 30303,
+        "PublicPort": 30313,
+        "Type": "udp"
+      },
+      {
+        "IP": "0.0.0.0",
+        "PrivatePort": 8545,
+        "PublicPort": 8555,
+        "Type": "tcp"
+      }
+    ],
+    "Labels": {
+      "com.docker.compose.config-hash": "811c2b78dc150030a47ceeca7c39bc8839ef1c6f875c02b90cb876d1210a467d",
+      "com.docker.compose.container-number": "1",
+      "com.docker.compose.oneoff": "False",
+      "com.docker.compose.project": "agency",
+      "com.docker.compose.service": "testing_geth_service",
+      "com.docker.compose.version": "1.17.0"
+    },
+    "State": "running",
+    "Status": "Up 44 hours",
+    "HostConfig": {
+      "NetworkMode": "agency_testing_agency_network"
+    },
+    "NetworkSettings": {
+      "Networks": {
+        "agency_testing_agency_network": {
+          "IPAMConfig": {
+            "IPv4Address": "172.21.0.5"
+          },
+          "Links": null,
+          "Aliases": null,
+          "NetworkID": "52b682f3ece8b55dc0a6ddf5d6cd76fa2733c0d7d7194a5eed4abf021125f7dd",
+          "EndpointID": "05762be862607e30e3d7f4c7ca5dd6fb08cb20e783dcabc27682291db4d74054",
+          "Gateway": "172.21.0.1",
+          "IPAddress": "172.21.0.5",
+          "IPPrefixLen": 24,
+          "IPv6Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "MacAddress": "02:42:ac:15:00:05",
+          "DriverOpts": null
+        }
+      }
+    },
+    "Mounts": [
+      {
+        "Type": "bind",
+        "Source": "/home/jenkins/workspace/Agency/geth_service/configs/static-nodes.json",
+        "Destination": "/root/.ethereum/static-nodes.json",
+        "Mode": "ro",
+        "RW": false,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/home/jenkins/workspace/Agency/geth_service/configs/trusted-nodes.json",
+        "Destination": "/root/.ethereum/trusted-nodes.json",
+        "Mode": "ro",
+        "RW": false,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/home/jenkins/workspace/Agency/geth_service/configs/genesis.json",
+        "Destination": "/root/genesis.json",
+        "Mode": "ro",
+        "RW": false,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/home/jenkins/workspace/Agency/geth_service/configs/passwd",
+        "Destination": "/root/passwd",
+        "Mode": "ro",
+        "RW": false,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/etc/localtime",
+        "Destination": "/etc/localtime",
+        "Mode": "ro",
+        "RW": false,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/home/jenkins/workspace/Agency/geth_service/configs/keystore",
+        "Destination": "/root/.ethereum/keystore",
+        "Mode": "rw",
+        "RW": true,
+        "Propagation": "rprivate"
+      }
+    ]
+  },
+  {
+    "Id": "45fa822ea5158aa113c962870e164dc0d904ab41fe703ad021caffdc7dbe32e4",
+    "Names": [
+      "/testing_agency_truffle_service"
+    ],
+    "Image": "agency_testing_truffle_service",
+    "ImageID": "sha256:7e9bf3f75f5cb61843f74859a4cccec780799e015b282c4466cca6538b55ab93",
+    "Command": "sh -c 'rm -rf ./node_modules && source /usr/local/nvm/nvm.sh && npm install -g truffle solium yarn && yarn install && bash'",
+    "Created": 1516285547,
+    "Ports": [],
+    "Labels": {
+      "com.docker.compose.config-hash": "335d6b4a60a9cb0dc3a5b54fb13e67c8051bf919ff4062c2e5529207b0495279",
+      "com.docker.compose.container-number": "1",
+      "com.docker.compose.oneoff": "False",
+      "com.docker.compose.project": "agency",
+      "com.docker.compose.service": "testing_truffle_service",
+      "com.docker.compose.version": "1.17.0"
+    },
+    "State": "running",
+    "Status": "Up 44 hours",
+    "HostConfig": {
+      "NetworkMode": "agency_testing_agency_network"
+    },
+    "NetworkSettings": {
+      "Networks": {
+        "agency_testing_agency_network": {
+          "IPAMConfig": {
+            "IPv4Address": "172.21.0.4"
+          },
+          "Links": null,
+          "Aliases": null,
+          "NetworkID": "52b682f3ece8b55dc0a6ddf5d6cd76fa2733c0d7d7194a5eed4abf021125f7dd",
+          "EndpointID": "b11f049e0ead307744f128b0adafdce577ee6d9e209b377e253a2fc226148783",
+          "Gateway": "172.21.0.1",
+          "IPAddress": "172.21.0.4",
+          "IPPrefixLen": 24,
+          "IPv6Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "MacAddress": "02:42:ac:15:00:04",
+          "DriverOpts": null
+        }
+      }
+    },
+    "Mounts": [
+      {
+        "Type": "bind",
+        "Source": "/home/jenkins/workspace/Agency/truffle_service",
+        "Destination": "/var/www/truffle_service.xdev",
+        "Mode": "rw",
+        "RW": true,
+        "Propagation": "rprivate"
+      }
+    ]
+  },
+  {
+    "Id": "b51c8e60f1f64312d6657270e43a8380ce3cba7262d9aa047f45e65768ee55f4",
+    "Names": [
+      "/testing_agency_mongodb"
+    ],
+    "Image": "mongo:latest",
+    "ImageID": "sha256:a0c8a8d1f8ec7cf4533a385725b394bef991eba90c37093cc82d42789492c84a",
+    "Command": "docker-entrypoint.sh mongod --smallfiles",
+    "Created": 1516285547,
+    "Ports": [
+      {
+        "IP": "0.0.0.0",
+        "PrivatePort": 27017,
+        "PublicPort": 27027,
+        "Type": "tcp"
+      }
+    ],
+    "Labels": {
+      "com.docker.compose.config-hash": "8b87501a34041e0d0b138b3abb4108573ca8ffae296acc55bd1ab3067e642513",
+      "com.docker.compose.container-number": "1",
+      "com.docker.compose.oneoff": "False",
+      "com.docker.compose.project": "agency",
+      "com.docker.compose.service": "testing_mongodb",
+      "com.docker.compose.version": "1.17.0"
+    },
+    "State": "running",
+    "Status": "Up 44 hours",
+    "HostConfig": {
+      "NetworkMode": "agency_testing_agency_network"
+    },
+    "NetworkSettings": {
+      "Networks": {
+        "agency_testing_agency_network": {
+          "IPAMConfig": {
+            "IPv4Address": "172.21.0.6"
+          },
+          "Links": null,
+          "Aliases": null,
+          "NetworkID": "52b682f3ece8b55dc0a6ddf5d6cd76fa2733c0d7d7194a5eed4abf021125f7dd",
+          "EndpointID": "b35df7da529555d2dd1f1816036e9eca6a1c25cae5de455a6f803761ba1d0b7f",
+          "Gateway": "172.21.0.1",
+          "IPAddress": "172.21.0.6",
+          "IPPrefixLen": 24,
+          "IPv6Gateway": "",
+          "GlobalIPv6Address": "",
+          "GlobalIPv6PrefixLen": 0,
+          "MacAddress": "02:42:ac:15:00:06",
+          "DriverOpts": null
+        }
+      }
+    },
+    "Mounts": [
+      {
+        "Type": "volume",
+        "Name": "06fe991403eb31e59192e799975dda1355b9dd708bd5fca05aa5c2a6fb6c195d",
+        "Source": "",
+        "Destination": "/data/configdb",
+        "Driver": "local",
+        "Mode": "",
+        "RW": true,
+        "Propagation": ""
+      },
+      {
+        "Type": "volume",
+        "Name": "40c458e9be737099bd75376d200340ff3cfb2ab7a3aa14ee2db1bb7be8d24cfb",
+        "Source": "",
+        "Destination": "/data/db",
+        "Driver": "local",
+        "Mode": "",
+        "RW": true,
+        "Propagation": ""
+      }
+    ]
+  }
+]

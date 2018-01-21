@@ -1,0 +1,10 @@
+[
+  {
+    "NAME": "Server test1",
+    "URL": "http://localhost:9000"
+  },
+  {
+    "NAME": "Server test2",
+    "URL": "http://localhost:9000"
+  }
+]
