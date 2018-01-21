@@ -1,25 +1,33 @@
 
-# React Starter 
-
-[![Greenkeeper badge](https://badges.greenkeeper.io/dmarczydlo/react-starter.svg)](https://greenkeeper.io/)
-[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dmarczydlo/react-starter/issues)  
-[![license](https://img.shields.io/github/license/mashape/apistatus.svg?style=plastic)](https://github.com/dmarczydlo/react-starter/blob/master/LICENSE)  [![GitHub issues](https://img.shields.io/github/issues/dmarczydlo/react-starter.svg)](https://github.com/dmarczydlo/react-starter/issues)
-[![dependencies Status](https://david-dm.org/dmarczydlo/react-starter/status.svg)](https://david-dm.org/dmarczydlo/react-starter)
-[![devDependencies Status](https://david-dm.org/dmarczydlo/react-starter/dev-status.svg)](https://david-dm.org/dmarczydlo/react-starter?type=dev)
-[![Build Status](https://travis-ci.org/dmarczydlo/react-starter.svg?branch=master)](https://travis-ci.org/dmarczydlo/react-starter)
-[![Coverage Status](https://coveralls.io/repos/github/dmarczydlo/react-starter/badge.svg?branch=master)](https://coveralls.io/github/dmarczydlo/react-starter?branch=master)
-# Starter dependencies  
-*  Axios
-*  React
-*  Redux
-*  Thunk
-*  React Router (v4)
-*  Jest
-*  ESLint
-*  Babel
-*  Webpack
-
+# Dockers Logger 
+Application to show dockers logs into browser
 ## Getting started
 1. ```git clone git@github.com:dmarczydlo/react-starter.git```
 1. ```yarn install```
 1. ```yarn dev```
+1. install nginx
+1. configure nginx like below: 
+```shell
+server {
+                 listen localhost:9000;
+                 location / {
+                         add_header 'Access-Control-Allow-Origin' '*';
+                         add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';
+                         proxy_pass http://unix:/var/run/docker.sock:/;
+                         }
+                 }
+         }
+```
+1.Add servers to config.json 
+```json 
+[
+  {
+    "NAME": "Server test1",
+    "URL": "http://localhost:9000"
+  },
+  {
+    "NAME": "Server test2",
+    "URL": "http://localhost:9000"
+  }
+]
+``` 
