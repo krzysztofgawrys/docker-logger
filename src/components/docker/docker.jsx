@@ -1,5 +1,4 @@
 import React from 'react';
-import {Row, Col} from 'antd';
 import {Card} from 'antd';
 import {LazyStream, ScrollFollow} from 'react-lazylog';
 import {parseName, networkParser} from '../../utils/parser';
@@ -13,7 +12,7 @@ const logsOutput = (id, URL) => {
             <div className="logsSpace">
                 <ScrollFollow startFollowing>
                     {({follow, onScroll}) => (
-                        <LazyStream url={URL} follow={follow} onScroll={onScroll}/>
+                        <LazyStream url={URL} follow={follow} onScroll={onScroll} />
                     )}
                 </ScrollFollow>
             </div>
@@ -34,7 +33,7 @@ const DockerComponent = (docker) => {
                         title={`Docker ${parseName(docker.name)} details`}
                         description={`ID: ${docker.id}`}
                     />
-                    <div className='dockerInfo'>
+                    <div className="dockerInfo">
                         <p>Status: <strong>{docker.status}</strong> </p>
                         <p>Network (address): <strong>{network ? network.address : ''}</strong></p>
                         <p>Network (gateway): <strong>{network ? network.gateway : ''}</strong></p>
