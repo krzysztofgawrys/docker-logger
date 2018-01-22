@@ -1,6 +1,8 @@
 
 # Docker Logger 
 Application to display logs from dockers
+[![Greenkeeper badge](https://badges.greenkeeper.io/dmarczydlo/docker-logger.svg)](https://greenkeeper.io/)
+
 ## Getting started
 1. ```git clone git@github.com:dmarczydlo/react-starter.git```
 1. ```yarn install```
