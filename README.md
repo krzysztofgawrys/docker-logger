@@ -1,8 +1,8 @@
 
 # Docker Logger 
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/dmarczydlo/docker-logger.svg)](https://greenkeeper.io/)
 Application to display logs from dockers
+
 [![Greenkeeper badge](https://badges.greenkeeper.io/dmarczydlo/docker-logger.svg)](https://greenkeeper.io/)
 [![dependencies Status](https://david-dm.org/dmarczydlo/docker-logger/status.svg)](https://david-dm.org/dmarczydlo/docker-logger)
 [![devDependencies Status](https://david-dm.org/dmarczydlo/docker-logger/dev-status.svg)](https://david-dm.org/dmarczydlo/docker-logger?type=dev)
