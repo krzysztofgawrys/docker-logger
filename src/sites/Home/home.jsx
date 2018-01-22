@@ -47,7 +47,7 @@ const displayMessageOrInfo = (message, servers) => {
                                     <Col span={8}>
                                         <Info {...element} />
                                     </Col>
-                                ) : <span/>
+                                ) : <span />
                                 }
                             </Fragment>
                         );
@@ -67,7 +67,8 @@ const Home = (props) => {
             <div className="homeBlock">
                 <h1>Dockers logger</h1>
                 <p>Open source application to display information about dockers status. Multi servers are
-                    available. </p>
+                    available.
+                </p>
                 <p>To add own servers you have to edit <b>config.json</b> file and insert own data.
                 </p>
             </div>
