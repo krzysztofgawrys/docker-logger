@@ -64,8 +64,18 @@ const Home = (props) => {
     const {message, servers} = props;
     return (
         <div>
-            {displayMessageOrInfo(message, servers)}
-
+            <div className="homeBlock">
+                <h1>Dockers logger</h1>
+                <p>Open source application to display information about dockers status. Multi servers are
+                    available.
+                </p>
+                <p>To add own servers you have to edit <b>config.json</b> file and insert own data.
+                </p>
+            </div>
+            <div className="homeBlock">
+                <h1>Available servers</h1>
+                {displayMessageOrInfo(message, servers)}
+            </div>
         </div>
 
     );
