@@ -44,16 +44,17 @@ const addFetchedData = () => {
                         if (dockers.length > 0) {
                             dispatch(addDockers(server.NAME, dockers));
                         } else {
-                            dispatch(addError(server.NAME, `Docker not detected for ${server.NAME}`));
+                            dispatch(addError(server.NAME, `Docker not detected for ${server.NAME} [${server.URL}]`));
                         }
                     })
                     .catch(() => {
-                        dispatch(addError(server.NAME, `Docker not detected for ${server.URL}`));
+                        dispatch(addError(server.NAME, `Docker not detected for ${server.NAME} [${server.URL}]`));
                     });
             });
         } else {
             dispatch(addNoDockers('Dockers not detected'));
         }
+        return true;
     };
 };
 

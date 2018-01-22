@@ -3,7 +3,7 @@ import {Alert, Row, Col} from 'antd';
 import Info from '../../components/info';
 
 
-const displayMessage = (message, servers) => {
+const displayMessageOrInfo = (message, servers) => {
     let ret = null;
     if (message) {
         ret = (
@@ -19,7 +19,7 @@ const displayMessage = (message, servers) => {
             <Fragment>
                 {servers.map((element, i) => {
                     return element.error ? (
-                        <div className="messagesBlock">
+                        <div className="messagesBlock" key={i}>
                             <Alert
                                 key={i}
                                 message={element.error}
@@ -27,27 +27,20 @@ const displayMessage = (message, servers) => {
                                 showIcon
                             />
                         </div>
-                    ) : null;
+                    ) : (
+                        <Row gutter={16}>
+
+                            {servers.map((infoElement, index) => {
+                                return infoElement.name ? (
+                                    <Col span={8} key={index}>
+                                        <Info {...infoElement} />
+                                    </Col>
+                                ) : null;
+                            })}
+                        </Row>
+                    );
                 })}
             </Fragment>
-        );
-    }
-    return ret;
-};
-const displayInfo = (servers) => {
-    let ret = null;
-    if (servers) {
-        ret = (
-            <Row gutter={16}>
-
-                {servers.map((element, i) => {
-                    return element.name ? (
-                        <Col span={8} key={i}>
-                            <Info {...element} />
-                        </Col>
-                    ) : null;
-                })}
-            </Row>
         );
     }
     return ret;
@@ -57,8 +50,7 @@ const Home = (props) => {
     const {message, servers} = props;
     return (
         <div>
-            {displayMessage(message, servers)}
-            {displayInfo(servers)}
+            {displayMessageOrInfo(message, servers)}
 
         </div>
 
