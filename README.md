@@ -1,5 +1,7 @@
 
 # Docker Logger 
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/dmarczydlo/docker-logger.svg)](https://greenkeeper.io/)
 Application to display logs from dockers
 [![Greenkeeper badge](https://badges.greenkeeper.io/dmarczydlo/docker-logger.svg)](https://greenkeeper.io/)
 
