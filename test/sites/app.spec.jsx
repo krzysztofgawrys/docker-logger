@@ -5,7 +5,7 @@ describe('app site', () => {
     let wrapper;
 
     const props = {
-        fetchDataFromURL: ()=>{}
+        fetchDataFromURL: () => {}
     };
 
     it('should be rendered', () => {
