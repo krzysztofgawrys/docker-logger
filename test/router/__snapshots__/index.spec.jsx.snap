@@ -74,7 +74,7 @@ exports[`Router index should be rendered 1`] = `
       <RouteWithSubRoutes
         component={[Function]}
         key="1"
-        path="/child/:id"
+        path="/dockers/:index/:id"
       />
       <Route
         component={[Function]}

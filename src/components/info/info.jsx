@@ -4,16 +4,19 @@ import {Card, Icon} from 'antd';
 const {Meta} = Card;
 
 const Info = (props) => {
+    const extra = props.error ? 'error' : '';
     return (
         <Card
             hoverable
             style={{width: 240}}
-            cover={<Icon className="fontDash" type="cloud" />}
+            cover={<Icon className={`fontDash ${extra}`} type="cloud" />}
+            className="infoSpace"
         >
             <Meta
                 title={props.name}
-                description={`Dockers: ${props.list.length}`}
+                description={props.list ? `Dockers: ${props.list.length}` : ''}
             />
+            <p>{props.URL}</p>
         </Card>
     );
 };

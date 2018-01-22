@@ -1,13 +1,16 @@
 body {
   font-family: Helvetica, Arial, sans-serif;
 }
+
 .test {
   background-color: yellow;
 }
+
 .logsSpace {
   margin-top: 10px;
   height: 55vh;
 }
+
 .dockerDetails {
   display: block;
   padding: 10px;
@@ -18,10 +21,19 @@ body {
     }
   }
 }
+
 .messagesBlock {
   margin: 5px;
 }
 
-.fontDash {
-  font-size: 60px;
+.infoSpace {
+  text-align: center;
+  .fontDash {
+    font-size: 60px;
+    color: #1890ff;
+  }
+  .error {
+    color: red;
+  }
+
 }

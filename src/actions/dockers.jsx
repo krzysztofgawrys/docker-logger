@@ -6,10 +6,11 @@ const SET_DOCKERS = 'SET_DOCKERS';
 const SET_DOCKERS_ERROR = 'SET_DOCKERS_ERROR';
 const NO_DOCKERS = 'NO_DOCKERS';
 
-const addDockers = (name, dockers) => {
+const addDockers = (name, URL, dockers) => {
     return {
         type: SET_DOCKERS,
         name,
+        URL,
         dockers
     };
 };
@@ -21,10 +22,11 @@ const addNoDockers = (message) => {
     };
 };
 
-const addError = (name, error) => {
+const addError = (name, URL, error) => {
     return {
         type: SET_DOCKERS_ERROR,
         name,
+        URL,
         error
     };
 };
@@ -42,13 +44,13 @@ const addFetchedData = () => {
                     .then((data) => {
                         const dockers = parser(data.data);
                         if (dockers.length > 0) {
-                            dispatch(addDockers(server.NAME, dockers));
+                            dispatch(addDockers(server.NAME, server.URL, dockers));
                         } else {
-                            dispatch(addError(server.NAME, `Docker not detected for ${server.NAME} [${server.URL}]`));
+                            dispatch(addError(server.NAME, server.URL, `Docker not detected for ${server.NAME} [${server.URL}]`));
                         }
                     })
                     .catch(() => {
-                        dispatch(addError(server.NAME, `Docker not detected for ${server.NAME} [${server.URL}]`));
+                        dispatch(addError(server.NAME, server.URL, `Docker not detected for ${server.NAME} [${server.URL}]`));
                     });
             });
         } else {

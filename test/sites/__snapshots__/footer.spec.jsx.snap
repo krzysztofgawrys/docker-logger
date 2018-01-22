@@ -1,7 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Footer should be rendered 1`] = `
-<div>
-  footer
-</div>
+<Adapter
+  style={
+    Object {
+      "textAlign": "center",
+    }
+  }
+>
+  Dockers logger @ dmarczydlo
+</Adapter>
 `;

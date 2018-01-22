@@ -1,6 +1,5 @@
 import React from 'react';
 import {Icon} from 'antd';
-import config from '../../config.json';
 
 const parser = (data) => {
     const ret = [];
@@ -28,7 +27,7 @@ const parseName = (name) => {
 const getDockerFromList = (servers = [], id, index = 0) => {
     let data = servers[index] ? servers[index].list.find(element => (element.id === id)) : {};
     if (servers[index]) {
-        const URL = {URL: config[index].URL};
+        const URL = {URL: servers[index].URL};
         data = {...data, ...URL};
     }
     return data;

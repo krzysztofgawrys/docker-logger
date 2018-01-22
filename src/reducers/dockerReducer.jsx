@@ -12,6 +12,7 @@ const dockerReducer = (state = initialState, action) => {
                 ...state,
                 servers: [...state.servers, {
                     name: action.name,
+                    URL: action.URL,
                     list: action.dockers
                 }]
             };
@@ -29,6 +30,7 @@ const dockerReducer = (state = initialState, action) => {
                 ...state,
                 servers: [...state.servers, {
                     name: action.name,
+                    URL: action.URL,
                     error: action.error
                 }]
             };

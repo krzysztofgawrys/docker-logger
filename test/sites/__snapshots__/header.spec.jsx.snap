@@ -1,7 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Header should be rendered 1`] = `
-<div>
-  header
-</div>
+<Adapter
+  style={
+    Object {
+      "background": "#fff",
+      "padding": 0,
+    }
+  }
+/>
 `;
