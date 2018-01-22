@@ -9,7 +9,7 @@ exports[`home site should be rendered 1`] = `
       Dockers logger
     </h1>
     <p>
-      Open source application to display information about dockers status. Multi servers are available. 
+      Open source application to display information about dockers status. Multi servers are available.
     </p>
     <p>
       To add own servers you have to edit 
