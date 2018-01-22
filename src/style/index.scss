@@ -2,8 +2,16 @@ body {
   font-family: Helvetica, Arial, sans-serif;
 }
 
-.test {
-  background-color: yellow;
+$gray: #e8e8e8;
+
+.homeBlock {
+  border: 1px solid $gray;
+  padding: 20px;
+  margin-bottom: 20px;
+  h1 {
+    border-bottom: 1px solid $gray;
+    padding-bottom: 5px;
+  }
 }
 
 .logsSpace {
@@ -28,6 +36,7 @@ body {
 
 .infoSpace {
   text-align: center;
+  margin-bottom: 20px;
   .fontDash {
     font-size: 60px;
     color: #1890ff;
