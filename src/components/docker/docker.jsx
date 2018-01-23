@@ -23,7 +23,7 @@ const logsOutput = (id, URL) => {
 
 const DockerComponent = (docker) => {
     const network = docker.network ? networkParser(docker.network) : null;
-    const URL = `${docker.URL}/containers/${docker.id}/logs?stderr=1&stdout=1&timestamps=1&follow=1`;
+    const URL = `${docker.URL}/containers/${docker.id}/logs?stderr=1&stdout=1&timestamps=1&follow=1&tail=100`;
 
     return (
         <div>
