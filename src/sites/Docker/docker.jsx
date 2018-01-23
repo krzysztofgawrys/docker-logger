@@ -7,7 +7,6 @@ const Docker = ({servers, match}) => {
     const docker = getDockerFromList(servers, id, index);
     return (
         <div>
-            <h1>Available servers</h1>
             <DockerComponent {...docker} />
         </div>
 
