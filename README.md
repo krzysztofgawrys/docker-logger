@@ -21,7 +21,6 @@ server {
                          add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';
                          proxy_pass http://unix:/var/run/docker.sock:/;
                          }
-                 }
          }
 ```
 1. Add servers to config.json 
