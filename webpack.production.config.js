@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackCleanupPlugin = require('webpack-cleanup-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
-const {resolve} = require('path')
+const {resolve} = require('path');
 
 loaders.push({
         test: /\.scss$/,
@@ -37,9 +37,13 @@ module.exports = {
         extensions: ['.js', '.jsx']
     },
     module: {
-        loaders
+        rules: loaders
     },
     devtool: 'source-map',
+    optimization: {
+        minimize: true
+    },
+    performance: { hints: false },
     plugins: [
         new WebpackCleanupPlugin(),
         new webpack.DefinePlugin({
@@ -56,8 +60,8 @@ module.exports = {
         }),
         new webpack.NoEmitOnErrorsPlugin(),
         new CompressionPlugin({
-            asset: "[path].gz[query]",
-            algorithm: "gzip",
+            asset: '[path].gz[query]',
+            algorithm: 'gzip',
             test: /\.js$|\.css$|\.html$/,
             threshold: 10240,
             minRatio: 0

@@ -16,7 +16,7 @@ Then application should work correctly on ```3000``` port in developer mode.
 
 For correct work Docker Logger you have to serve ```docker.sock``` as json file with ```CORS```. `Nginx` is one of the options for that.
 ### Internal Nginx
-1. Install nginx on yor system
+1. Install nginx on your system
 1. Configure nginx like below: 
 ```shell
 server {
