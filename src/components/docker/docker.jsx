@@ -1,6 +1,6 @@
 import React from 'react';
 import {Card} from 'antd';
-import {LazyStream, ScrollFollow} from 'react-lazylog';
+import {LazyStream, ScrollFollow} from 'react-lazylog/lib/LazyLog.es5';
 import {parseName, networkParser} from '../../utils/parser';
 
 const {Meta} = Card;
