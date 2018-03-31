@@ -63,7 +63,7 @@ exports[`Router index Config should be rendered without layout 1`] = `
 
 exports[`Router index should be rendered 1`] = `
 <BrowserRouter>
-  <index>
+  <WithWidth>
     <Switch>
       <RouteWithSubRoutes
         component={[Function]}
@@ -80,6 +80,6 @@ exports[`Router index should be rendered 1`] = `
         component={[Function]}
       />
     </Switch>
-  </index>
+  </WithWidth>
 </BrowserRouter>
 `;

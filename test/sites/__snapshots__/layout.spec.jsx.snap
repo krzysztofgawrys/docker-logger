@@ -1,73 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`layout should be rendered 1`] = `
-<Adapter
-  style={
-    Object {
-      "minHeight": "100vh",
-    }
-  }
+<EventListener
+  onResize={[Function]}
+  target="window"
 >
-  <Sider
-    collapsed={false}
-    collapsedWidth={80}
-    collapsible={true}
-    defaultCollapsed={false}
-    onCollapse={[Function]}
-    prefixCls="ant-layout-sider"
-    reverseArrow={false}
-    style={Object {}}
-    width={200}
-  >
-    <div
-      className="logo"
-    />
-    <Menu
-      className=""
-      defaultSelectedKeys={
-        Array [
-          "1",
-        ]
-      }
-      prefixCls="ant-menu"
-      theme="dark"
-    >
-      <MenuItem
-        key="home"
-      >
-        <Link
-          replace={false}
-          to="/"
-        >
-          <Icon
-            type="home"
-          />
-          <span>
-            Home
-          </span>
-        </Link>
-      </MenuItem>
-    </Menu>
-  </Sider>
-  <Adapter>
-    <Adapter
-      style={
-        Object {
-          "margin": "0 16px",
-        }
-      }
-    >
-      <div
-        style={
-          Object {
-            "background": "#fff",
-            "minHeight": 360,
-            "padding": 24,
-          }
-        }
-      />
-    </Adapter>
-    <footer />
-  </Adapter>
-</Adapter>
+  <Index
+    width={3}
+  />
+</EventListener>
 `;

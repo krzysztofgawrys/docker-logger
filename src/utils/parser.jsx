@@ -1,5 +1,6 @@
 import React from 'react';
-import {Icon} from 'antd';
+import StatusIcon from 'material-ui/svg-icons/action/check-circle';
+import {red500, green500} from 'material-ui/styles/colors';
 
 const parser = (data) => {
     const ret = [];
@@ -34,13 +35,7 @@ const getDockerFromList = (servers = [], id, index = 0) => {
 };
 
 const getIcon = (state) => {
-    const red = {
-        color: 'red'
-    };
-    const green = {
-        color: 'green'
-    };
-    return (state === 'running') ? <Icon type="check-circle" style={green} /> : <Icon type="close-circle" style={red} />;
+    return <StatusIcon color={(state === 'running') ? green500 : red500} />;
 };
 
 const networkParser = (network) => {

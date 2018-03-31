@@ -1,5 +1,6 @@
 body {
   font-family: Helvetica, Arial, sans-serif;
+  margin: 0px;
 }
 
 $gray: #e8e8e8;
@@ -22,6 +23,9 @@ $gray: #e8e8e8;
 .dockerDetails {
   display: block;
   padding: 10px;
+  .logs {
+    margin-top: 20px;
+  }
   .dockerInfo {
     margin-top: 10px;
     p {
