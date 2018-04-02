@@ -1,10 +1,18 @@
 import axios from 'axios';
-import {parser} from '../utils/parser';
+import {parser, metricParser} from '../utils/parser';
 import config from '../../config.json';
 
 const SET_DOCKERS = 'SET_DOCKERS';
 const SET_DOCKERS_ERROR = 'SET_DOCKERS_ERROR';
 const NO_DOCKERS = 'NO_DOCKERS';
+const ADD_METRIC = 'ADD_METRIC';
+
+const addMetric = (metric) => {
+    return {
+        type: ADD_METRIC,
+        metric
+    };
+};
 
 const addDockers = (name, URL, dockers) => {
     return {
@@ -60,13 +68,24 @@ const addFetchedData = () => {
     };
 };
 
+const getStatsForDocker = (URL) => {
+    return (dispatch) => {
+        fetchDataFromURL(URL)
+            .then((resp) => {
+                dispatch(addMetric(metricParser(resp.data)));
+            });
+    };
+};
+
 export {
     SET_DOCKERS,
     SET_DOCKERS_ERROR,
     NO_DOCKERS,
+    ADD_METRIC,
     addDockers,
     fetchDataFromURL,
     addFetchedData,
     addError,
-    addNoDockers
+    addNoDockers,
+    getStatsForDocker
 };

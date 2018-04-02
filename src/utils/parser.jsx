@@ -48,10 +48,67 @@ const networkParser = (network) => {
         })[0] || [];
 };
 
+const bytesToSize = (bytes) => {
+    const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
+    if (bytes === 0) return '0 Byte';
+    const i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)), 10);
+    return `${Math.round(bytes / (1024 ** i), 2)} ${sizes[i]}`;
+};
+
+const metricParser = (metrics) => {
+    const {
+        memory_stats, pids_stats, precpu_stats, networks
+    } = metrics;
+    const memory = {
+        percUsage: parseFloat((memory_stats.usage / memory_stats.limit * 100).toFixed(2)),
+        limit: memory_stats.limit,
+        usage: memory_stats.usage,
+        limitText: bytesToSize(memory_stats.limit),
+        usingText: bytesToSize(memory_stats.usage)
+    };
+    const pids = pids_stats.current;
+
+    const cpu = {
+        percUsage: parseFloat((precpu_stats.cpu_usage.total_usage / precpu_stats.system_cpu_usage * 100).toFixed(2)),
+        cpus: precpu_stats.online_cpus,
+        total_usage: precpu_stats.cpu_usage.total_usage,
+        system_cpu: precpu_stats.system_cpu_usage
+    };
+
+    let received = 0;
+    let sent = 0;
+    if (networks) {
+        Object.keys(networks)
+            .map((inteface) => {
+                received += networks[inteface].rx_bytes;
+                sent += networks[inteface].tx_bytes;
+                return true;
+            });
+    }
+    const networksData = {
+        received,
+        sent
+    };
+
+
+    const metric = {
+        memory,
+        pids,
+        cpu,
+        networksData
+    };
+
+    // console.log(metric);
+
+    return metric;
+};
+
 export {
     parser,
     parseName,
     getDockerFromList,
     getIcon,
-    networkParser
+    networkParser,
+    bytesToSize,
+    metricParser
 };

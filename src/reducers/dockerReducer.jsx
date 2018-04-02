@@ -1,4 +1,4 @@
-import {SET_DOCKERS, SET_DOCKERS_ERROR, NO_DOCKERS} from '../actions/dockers';
+import {SET_DOCKERS, SET_DOCKERS_ERROR, NO_DOCKERS, ADD_METRIC} from '../actions/dockers';
 
 const initialState = {
     servers: [],
@@ -7,6 +7,12 @@ const initialState = {
 
 const dockerReducer = (state = initialState, action) => {
     switch (action.type) {
+        case ADD_METRIC: {
+            return {
+                ...state,
+                metric: action.metric
+            };
+        }
         case SET_DOCKERS: {
             return {
                 ...state,
