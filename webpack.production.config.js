@@ -5,6 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackCleanupPlugin = require('webpack-cleanup-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const {resolve} = require('path');
 
 loaders.push({
@@ -72,6 +73,10 @@ module.exports = {
                 css: ['style.css'],
                 js: ['[chunkhash].js']
             }
-        })
+        }),
+        new CopyWebpackPlugin([{
+            from: resolve(__dirname, 'public/pwa/'),
+            to: resolve(__dirname, 'dist/')
+        }])
     ]
 };
