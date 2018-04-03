@@ -1,0 +1,16 @@
+{
+  "name": "Docker Logger",
+  "short_name": "Docker Logger",
+  "lang": "en-US",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#1e88e5",
+  "background_color": "#1e88e5",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "200x200",
+      "type": "image/png"
+    }
+  ]
+}
