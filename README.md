@@ -9,7 +9,7 @@ Application to display logs from dockers
 [![Build Status](https://travis-ci.org/dmarczydlo/docker-logger.svg?branch=master)](https://travis-ci.org/dmarczydlo/docker-logger)
 
 ## Preview
-![image](https://image.ibb.co/dOPS6c/docker_loger.png)
+![image](https://image.ibb.co/dPs09x/logger.png)
 
 ## Getting started
 1. ```git clone git@github.com:dmarczydlo/react-starter.git```
