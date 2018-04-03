@@ -55,9 +55,25 @@ const bytesToSize = (bytes) => {
     return `${Math.round(bytes / (1024 ** i), 2)} ${sizes[i]}`;
 };
 
+const calculateCPUPercent = (precpuStats, cpuStats) => {
+    let cpuPercent = 0.0;
+    const cpuDelta = parseFloat(cpuStats.cpu_usage.total_usage) - parseFloat(precpuStats.cpu_usage.total_usage);
+    const systemDelta = parseFloat(cpuStats.system_cpu_usage) - parseFloat(precpuStats.system_cpu_usage);
+
+    if (systemDelta > 0.0 && cpuDelta > 0.0) {
+        cpuPercent = (cpuDelta / systemDelta) * (cpuStats.cpu_usage.percpu_usage).length * 100.0;
+    }
+    const ret = {
+        max: systemDelta,
+        value: cpuDelta * (cpuStats.cpu_usage.percpu_usage).length,
+        cpuPercent
+    };
+    return ret;
+};
+
 const metricParser = (metrics) => {
     const {
-        memory_stats, pids_stats, precpu_stats, networks
+        memory_stats, pids_stats, precpu_stats, cpu_stats, networks
     } = metrics;
     const memory = {
         percUsage: parseFloat((memory_stats.usage / memory_stats.limit * 100).toFixed(2)),
@@ -68,13 +84,13 @@ const metricParser = (metrics) => {
     };
     const pids = pids_stats.current;
 
+    const cpuValues = calculateCPUPercent(precpu_stats, cpu_stats);
     const cpu = {
-        percUsage: parseFloat((precpu_stats.cpu_usage.total_usage / precpu_stats.system_cpu_usage * 100).toFixed(2)),
-        cpus: precpu_stats.online_cpus,
-        total_usage: precpu_stats.cpu_usage.total_usage,
-        system_cpu: precpu_stats.system_cpu_usage
+        percUsage: parseFloat((cpuValues.cpuPercent).toFixed(2)),
+        cpus: cpu_stats.online_cpus,
+        total_usage: cpuValues.value,
+        system_cpu: cpuValues.max
     };
-
     let received = 0;
     let sent = 0;
     if (networks) {
@@ -97,9 +113,6 @@ const metricParser = (metrics) => {
         cpu,
         networksData
     };
-
-    // console.log(metric);
-
     return metric;
 };
 

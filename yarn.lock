@@ -7540,10 +7540,6 @@ react-router@^4.2.0:
     prop-types "^15.5.4"
     warning "^3.0.0"
 
-react-simple-charts@^0.0.19:
-  version "0.0.19"
-  resolved "https://registry.yarnpkg.com/react-simple-charts/-/react-simple-charts-0.0.19.tgz#b7c3ece36e66fb15c15d24ef5d4d76ba5767dc5a"
-
 react-test-renderer@^16.0.0-0, react-test-renderer@^16.1.1:
   version "16.2.0"
   resolved "https://registry.yarnpkg.com/react-test-renderer/-/react-test-renderer-16.2.0.tgz#bddf259a6b8fcd8555f012afc8eacc238872a211"

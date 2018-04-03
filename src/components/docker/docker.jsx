@@ -7,7 +7,10 @@ import {List, ListItem} from 'material-ui/List';
 import CloudDone from 'material-ui/svg-icons/file/cloud-done';
 import {green500} from 'material-ui/styles/colors';
 import NetworkIcon from 'material-ui/svg-icons/notification/network-check';
-import {parseName, networkParser} from '../../utils/parser';
+import MemoryIcon from 'material-ui/svg-icons/hardware/memory';
+import PidsIcon from 'material-ui/svg-icons/editor/insert-chart';
+
+import {parseName, networkParser, bytesToSize} from '../../utils/parser';
 import Metric from '../metric';
 
 const logsOutput = (id, URL) => {
@@ -24,6 +27,30 @@ const logsOutput = (id, URL) => {
                     </ScrollFollow>
                 </div>
             </Card>
+        );
+    }
+    return ret;
+};
+
+const showMetric = (metric) => {
+    let ret = null;
+    if (metric && metric.memory) {
+        ret = (
+            <List>
+                <ListItem leftIcon={<MemoryIcon />} >
+                    <Metric max={metric.memory.limit} value={metric.memory.usage} label={`Memory usage: ${metric.memory.usingText}/${metric.memory.limitText}`} />
+                </ListItem>
+                <ListItem leftIcon={<MemoryIcon />}>
+                    <Metric max={metric.cpu.system_cpu} value={metric.cpu.total_usage} label={`CPU usage: ${metric.cpu.percUsage}%`} />
+                </ListItem>
+                <ListItem leftIcon={<NetworkIcon />}>
+                    <span>Network: {bytesToSize(metric.networksData.sent)}/{bytesToSize(metric.networksData.received)}</span>
+                </ListItem>
+                <ListItem leftIcon={<PidsIcon />}>
+                    <span>PIDS: {metric.pids}</span>
+                </ListItem>
+
+            </List>
         );
     }
     return ret;
@@ -75,7 +102,7 @@ class DockerComponent extends Component {
                                     </List>
                                 </Col>
                                 <Col sm={6} xs={12}>
-                                    <Metric metric={metric} />
+                                    {showMetric(metric)}
                                 </Col>
                             </Row>
                         </CardText>

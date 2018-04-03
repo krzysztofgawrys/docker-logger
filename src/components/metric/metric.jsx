@@ -3,23 +3,17 @@ import React from 'react';
 
 import LinearProgress from 'material-ui/LinearProgress';
 
-const Metric = ({metric}) => {
-    if (metric.memory) {
-        return (
-            <div>
-                <div className="memory">
-                    <LinearProgress max={metric.memory.limit} value={metric.memory.usage} mode="determinate" />
-                    <span>Memory usage: {metric.memory.usingText}/{metric.memory.limitText}</span>
-                </div>
-                <div className="cpu">
-                    <LinearProgress max={metric.cpu.system_cpu} value={metric.cpu.total_usage} mode="determinate" />
-                    <span>CPU usage: {metric.cpu.percUsage}%</span>
-                </div>
-                PIDS
-                NETWORK
-            </div>
-        );
-    }
-    return null;
+const style = {
+    marginBottom: '9px'
+};
+
+const Metric = ({max, value, label}) => {
+    return (
+        <div>
+            <LinearProgress max={max} value={value} mode="determinate" style={style} />
+            <span>{label}</span>
+
+        </div>
+    );
 };
 export default Metric;
