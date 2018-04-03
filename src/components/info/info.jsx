@@ -1,22 +1,26 @@
 import React from 'react';
-import {Card, Icon} from 'antd';
+import {Card, CardHeader} from 'material-ui/Card';
+import CloudDone from 'material-ui/svg-icons/file/cloud-done';
+import CloudError from 'material-ui/svg-icons/file/cloud-off';
+import Badge from 'material-ui/Badge';
+import {red500, green500} from 'material-ui/styles/colors';
 
-const {Meta} = Card;
 
 const Info = (props) => {
-    const extra = props.error ? 'error' : '';
+    const icon = props.list ? (<Badge badgeContent={props.list.length} primary><CloudDone color={green500} /></Badge>) :
+        (<Badge badgeContent="" ><CloudError color={red500} /></Badge>);
     return (
-        <Card
-            hoverable
-            style={{width: 240}}
-            cover={<Icon className={`fontDash ${extra}`} type="cloud" />}
-            className="infoSpace"
-        >
-            <Meta
+        <Card>
+            <CardHeader
+                avatar={
+                    icon
+                }
                 title={props.name}
-                description={props.list ? `Dockers: ${props.list.length}` : ''}
+                subtitle={props.URL}
+                actAsExpander
+                showExpandableButton={false}
             />
-            <p>{props.URL}</p>
+
         </Card>
     );
 };

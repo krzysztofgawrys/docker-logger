@@ -1,42 +1,14 @@
 import React, {Fragment} from 'react';
-import {Alert, Row, Col} from 'antd';
+import {Row, Col} from 'react-grid-system';
 import Info from '../../components/info';
-
-const showErrors = (errors) => {
-    return (
-        <div>
-            {errors.map((error, id) => {
-                return (
-                    <div className="messagesBlock" key={id}>
-                        <Alert
-                            key={id}
-                            message={error}
-                            type="warning"
-                            showIcon
-                        />
-                    </div>
-                );
-            })}
-        </div>
-    );
-};
 
 const displayMessageOrInfo = (message, servers) => {
     let ret = null;
     const errors = [];
-    if (message) {
-        ret = (
-            <Alert
-                message={message}
-                type="warning"
-                showIcon
-            />
-        );
-    }
     if (servers) {
         ret = (
             <Fragment>
-                <Row gutter={16}>
+                <Row xs={16}>
                     {servers.map((element, i) => {
                         element.error ? ( // eslint-disable-line no-unused-expressions
                             errors.push(element.error)
@@ -44,7 +16,7 @@ const displayMessageOrInfo = (message, servers) => {
                         return (
                             <Fragment key={i}>
                                 {element.name ? (
-                                    <Col span={8}>
+                                    <Col lg={3} xs={12}>
                                         <Info {...element} />
                                     </Col>
                                 ) : <span />
@@ -53,7 +25,6 @@ const displayMessageOrInfo = (message, servers) => {
                         );
                     })}
                 </Row>
-                {showErrors(errors)}
             </Fragment>
         );
     }
@@ -77,7 +48,6 @@ const Home = (props) => {
                 {displayMessageOrInfo(message, servers)}
             </div>
         </div>
-
     );
 };
 

@@ -7,6 +7,10 @@ Application to display logs from dockers
 [![dependencies Status](https://david-dm.org/dmarczydlo/docker-logger/status.svg)](https://david-dm.org/dmarczydlo/docker-logger)
 [![devDependencies Status](https://david-dm.org/dmarczydlo/docker-logger/dev-status.svg)](https://david-dm.org/dmarczydlo/docker-logger?type=dev)
 [![Build Status](https://travis-ci.org/dmarczydlo/docker-logger.svg?branch=master)](https://travis-ci.org/dmarczydlo/docker-logger)
+
+## Preview
+![image](https://image.ibb.co/dOPS6c/docker_loger.png)
+
 ## Getting started
 1. ```git clone git@github.com:dmarczydlo/react-starter.git```
 1. ```yarn```
