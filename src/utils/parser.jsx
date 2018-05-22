@@ -73,7 +73,7 @@ const calculateCPUPercent = (precpuStats, cpuStats) => {
 
 const metricParser = (metrics) => {
     const {
-        memory_stats, pids_stats, precpu_stats, cpu_stats, networks
+        memory_stats, pids_stats, precpu_stats, cpu_stats, networks // eslint-disable-line camelcase
     } = metrics;
     const memory = {
         percUsage: parseFloat((memory_stats.usage / memory_stats.limit * 100).toFixed(2)),
