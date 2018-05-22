@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Card, CardActions, CardHeader, CardTitle, CardText} from 'material-ui/Card';
-import {LazyStream, ScrollFollow} from 'react-lazylog/lib/LazyLog.es5';
+import {LazyLog, ScrollFollow} from 'react-lazylog';
 import FlatButton from 'material-ui/FlatButton';
 import {Row, Col} from 'react-grid-system';
 import {List, ListItem} from 'material-ui/List';
@@ -20,11 +20,10 @@ const logsOutput = (id, URL) => {
             <Card>
                 <CardTitle title="Logs from container" />
                 <div className="logsSpace">
-                    <ScrollFollow startFollowing>
-                        {({follow, onScroll}) => (
-                            <LazyStream url={URL} follow={follow} onScroll={onScroll} />
-                        )}
-                    </ScrollFollow>
+                    <ScrollFollow render={({follow, onScroll}) => (
+                        <LazyLog selectableLines stream url={URL} follow={follow} onScroll={onScroll} />
+                    )}
+                    />
                 </div>
             </Card>
         );
@@ -57,11 +56,12 @@ const showMetric = (metric) => {
 };
 
 class DockerComponent extends Component {
-    componentWillReceiveProps(nextProps) {
-        if (nextProps.docker.URL) {
+    static getDerivedStateFromProps(nextProps) {
+        if (nextProps.docker.URL && nextProps.getStatsForDocker) {
             const URL = `${nextProps.docker.URL}/containers/${nextProps.docker.id}/stats?stream=false`;
-            this.props.getStatsForDocker(URL);
+            nextProps.getStatsForDocker(URL);
         }
+        return null;
     }
 
     render() {
