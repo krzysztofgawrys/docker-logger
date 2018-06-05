@@ -7,6 +7,7 @@ Application to display logs from dockers
 [![dependencies Status](https://david-dm.org/dmarczydlo/docker-logger/status.svg)](https://david-dm.org/dmarczydlo/docker-logger)
 [![devDependencies Status](https://david-dm.org/dmarczydlo/docker-logger/dev-status.svg)](https://david-dm.org/dmarczydlo/docker-logger?type=dev)
 [![Build Status](https://travis-ci.org/dmarczydlo/docker-logger.svg?branch=master)](https://travis-ci.org/dmarczydlo/docker-logger)
+[![Known Vulnerabilities](https://snyk.io/test/github/dmarczydlo/docker-logger/badge.svg?targetFile=package.json)](https://snyk.io/test/github/dmarczydlo/docker-logger?targetFile=package.json)
 
 ## Preview
 ![image](https://image.ibb.co/dPs09x/logger.png)
