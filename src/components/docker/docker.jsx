@@ -12,6 +12,7 @@ import PidsIcon from 'material-ui/svg-icons/editor/insert-chart';
 
 import {parseName, networkParser, bytesToSize} from '../../utils/parser';
 import Metric from '../metric';
+import Terminal from '../terminal';
 
 const logsOutput = (id, URL) => {
     let ret = null;
@@ -114,6 +115,7 @@ class DockerComponent extends Component {
                     <div className="logs">
                         {logsOutput(docker.id, URL)}
                     </div>
+                    <Terminal docker={docker} />
                 </div>
             </div>
         );
