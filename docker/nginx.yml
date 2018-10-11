@@ -2,6 +2,15 @@
 version: '2.2'
 
 services:
+ docker_loger:
+   build: nginx-react
+   container_name: docker_loger
+   ports:
+     - "8081:9000"
+   volumes:
+   - ../:/var/www/docker_loger
+   tty: true
+
  nginx:
     build: nginx-docker
     container_name: nginx

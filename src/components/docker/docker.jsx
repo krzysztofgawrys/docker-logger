@@ -9,6 +9,7 @@ import {green500} from 'material-ui/styles/colors';
 import NetworkIcon from 'material-ui/svg-icons/notification/network-check';
 import MemoryIcon from 'material-ui/svg-icons/hardware/memory';
 import PidsIcon from 'material-ui/svg-icons/editor/insert-chart';
+import {Tabs, Tab} from 'material-ui/Tabs';
 
 import {parseName, networkParser, bytesToSize} from '../../utils/parser';
 import Metric from '../metric';
@@ -37,11 +38,19 @@ const showMetric = (metric) => {
     if (metric && metric.memory) {
         ret = (
             <List>
-                <ListItem leftIcon={<MemoryIcon />} >
-                    <Metric max={metric.memory.limit} value={metric.memory.usage} label={`Memory usage: ${metric.memory.usingText}/${metric.memory.limitText}`} />
+                <ListItem leftIcon={<MemoryIcon />}>
+                    <Metric
+                        max={metric.memory.limit}
+                        value={metric.memory.usage}
+                        label={`Memory usage: ${metric.memory.usingText}/${metric.memory.limitText}`}
+                    />
                 </ListItem>
                 <ListItem leftIcon={<MemoryIcon />}>
-                    <Metric max={metric.cpu.system_cpu} value={metric.cpu.total_usage} label={`CPU usage: ${metric.cpu.percUsage}%`} />
+                    <Metric
+                        max={metric.cpu.system_cpu}
+                        value={metric.cpu.total_usage}
+                        label={`CPU usage: ${metric.cpu.percUsage}%`}
+                    />
                 </ListItem>
                 <ListItem leftIcon={<NetworkIcon />}>
                     <span>Network: {bytesToSize(metric.networksData.sent)}/{bytesToSize(metric.networksData.received)}</span>
@@ -57,6 +66,10 @@ const showMetric = (metric) => {
 };
 
 class DockerComponent extends Component {
+    state = {
+        tab: 'console'
+    };
+
     static getDerivedStateFromProps(nextProps) {
         if (nextProps.docker.URL && nextProps.getStatsForDocker) {
             const URL = `${nextProps.docker.URL}/containers/${nextProps.docker.id}/stats?stream=false`;
@@ -65,6 +78,12 @@ class DockerComponent extends Component {
         return null;
     }
 
+    handleChange = (value) => {
+        this.setState({
+            tab: value
+        });
+    };
+
     render() {
         const {docker, metric} = this.props;
         const network = docker.network ? networkParser(docker.network) : null;
@@ -72,6 +91,7 @@ class DockerComponent extends Component {
 
         return (
             <div>
+
                 <div className="dockerDetails">
                     <Card>
                         <CardHeader
@@ -112,10 +132,19 @@ class DockerComponent extends Component {
                             <FlatButton label="stop" secondary />
                         </CardActions>
                     </Card>
-                    <div className="logs">
-                        {logsOutput(docker.id, URL)}
-                    </div>
-                    <Terminal docker={docker} />
+                    <Tabs
+                        value={this.state.tab}
+                        onChange={this.handleChange}
+                    >
+                        <Tab label="Console" value="console" buttonStyle={{background: '#1e88e5'}}>
+                            <div className="logs">
+                                {logsOutput(docker.id, URL)}
+                            </div>
+                        </Tab>
+                        <Tab label="Terminal" value="terminal" buttonStyle={{background: '#1e88e5'}}>
+                            <Terminal docker={docker} />
+                        </Tab>
+                    </Tabs>
                 </div>
             </div>
         );

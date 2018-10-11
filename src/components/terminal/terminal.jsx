@@ -1,27 +1,28 @@
 import React from 'react';
 import Terminal from 'terminal-in-react';
-import {sendCMD} from '../../utils/commands';
+import sendCMD from '../../utils/commands';
 
 const TerminalComponent = ({docker}) => {
     return (
         <div>
             <Terminal
-                color='green'
+                hideTopBar
+                color="white"
+                prompt="red"
                 watchConsoleLogging={false}
-                backgroundColor='black'
-                barColor='black'
+                backgroundColor="#222222"
+                barColor="#222222"
                 commandPassThrough={(cmd, print) => {
-                    sendCMD(cmd, docker).then((res)=>{
+                    sendCMD(cmd, docker).then((res) => {
                         print(res);
                     });
                     // print(`-PassedThrough:${cmd}: command not found`);
                 }}
-                msg='You can write anything here. Example - Hello! My name is Foo and I like Bar.'
+                msg="You can enter a commands"
             />
         </div>
     );
 };
-
 
 
 export default TerminalComponent;

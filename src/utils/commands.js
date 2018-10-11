@@ -22,11 +22,9 @@ const sendCMD = async (command, docker) => {
             Detach: false,
             Tty: false
         });
-        return output.data.replace(//g, '');
+        return output.data.replace(//g, ''); // eslint-disable-line no-control-regex
     }
     return null;
 };
 
-export {
-    sendCMD
-};
+export default sendCMD;
