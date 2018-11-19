@@ -38,7 +38,7 @@
     "autoprefixer": "^9.0.0",
     "babel-cli": "^6.24.1",
     "babel-core": "^6.25.0",
-    "babel-eslint": "^9.0.0",
+    "babel-eslint": "^10.0.0",
     "babel-jest": "^23.0.0",
     "babel-loader": "^7.0.0",
     "babel-plugin-react-transform": "^3.0.0",
@@ -101,6 +101,7 @@
     "setupFiles": [
       "./test/jestsetup.jsx"
     ],
+    "testURL": "http://localhost",
     "snapshotSerializers": [
       "enzyme-to-json/serializer"
     ]
