@@ -50,3 +50,13 @@ $gray: #e8e8e8;
   }
 
 }
+
+.terminal-base {
+  max-width: 100%;
+  > div {
+    max-width: 100%;
+    > div {
+      max-width: 100%;
+    }
+  }
+}
