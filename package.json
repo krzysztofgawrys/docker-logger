@@ -71,7 +71,7 @@
     "jest": "^22.0.0",
     "node-sass": "^4.6.0",
     "postcss-loader": "^3.0.0",
-    "precss": "^3.0.0",
+    "precss": "^4.0.0",
     "react-hot-loader": "^4.0.0",
     "react-router-redux": "^4.0.8",
     "react-test-renderer": "^16.1.1",
