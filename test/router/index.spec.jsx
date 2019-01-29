@@ -1,10 +1,11 @@
+/* eslint-disable new-cap */
 import React from 'react';
-import {BrowserRouter as Router} from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import Index from '../../src/router/index';
-import {routes, RouteWithSubRoutes} from '../../src/router/config';
+import { routes, RouteWithSubRoutes } from '../../src/router/config';
 
 describe('Router index', () => {
-    let wrapper;
+    let wrapper = null;
 
     it('should be rendered', () => {
         wrapper = global.shallow(<Index />);
@@ -12,21 +13,33 @@ describe('Router index', () => {
     });
 
     it('Config should be rendered', () => {
-        const route = routes[0];
+        const [route] = routes;
         expect(RouteWithSubRoutes(route)).not.toBeNull();
-        wrapper = global.shallow(<Router>{RouteWithSubRoutes(route)}</Router>);
+        wrapper = global.shallow(
+            <Router>
+                {RouteWithSubRoutes(route)}
+            </Router>
+        );
         expect(wrapper).toMatchSnapshot();
     });
 
     it('Config should be rendered without layout', () => {
-        const Test = () => <span>test</span>;
+        const Test = () => (
+            <span>
+                {'test'}
+            </span>
+        );
         const route = {
             path: '/test/',
             component: Test,
             layout: false
         };
         expect(RouteWithSubRoutes(route)).not.toBeNull();
-        wrapper = global.shallow(<Router>{RouteWithSubRoutes(route)}</Router>);
+        wrapper = global.shallow(
+            <Router>
+                {RouteWithSubRoutes(route)}
+            </Router>
+        );
         expect(wrapper).toMatchSnapshot();
     });
 });

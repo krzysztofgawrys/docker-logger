@@ -17,21 +17,27 @@ class Header extends React.Component {
                 maxHeight: 57,
                 backgroundColor: blue600
             },
-            menuButton: {
-                marginLeft: 40
-            }
+            menuButton: {marginLeft: 40}
         };
 
         return (
             <div>
                 <AppBar
-                    style={{...styles, ...style.appBar}}
-                    title={title}
                     iconElementLeft={
-                        <IconButton style={style.menuButton} onClick={handleChangeRequestNavDrawer}>
+                        <IconButton
+                            onClick={handleChangeRequestNavDrawer}
+                            // eslint-disable-next-line react/forbid-component-props
+                            style={style.menuButton}
+                        >
                             <Menu color={white} />
                         </IconButton>
                     }
+                    // eslint-disable-next-line react/forbid-component-props
+                    style={{
+                        ...styles,
+                        ...style.appBar
+                    }}
+                    title={title}
                 />
             </div>
         );
@@ -39,8 +45,9 @@ class Header extends React.Component {
 }
 
 Header.propTypes = {
+    handleChangeRequestNavDrawer: PropTypes.func.isRequired,
     styles: PropTypes.object.isRequired,
-    handleChangeRequestNavDrawer: PropTypes.func.isRequired
+    title: PropTypes.string.isRequired
 };
 
 export default Header;

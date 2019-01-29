@@ -14,20 +14,21 @@ const sumMenu = (elements, i) => {
     const data = [];
     if (elements.list) {
         elements.list.map((item) => {
-            return data.push(<ListItem
-                key={item.id}
-                containerElement={<Link to={`/dockers/${i}/${item.id}`} />}
-                primaryText={parseName(item.name)}
-                leftIcon={getIcon(item.state)}
-            />);
+            return data.push(
+                <ListItem
+                    containerElement={<Link to={`/dockers/${i}/${item.id}`} />}
+                    key={item.id}
+                    leftIcon={getIcon(item.state)}
+                    primaryText={parseName(item.name)}
+                />
+            );
         });
     }
 
     return data;
 };
 
-const LeftDrawer = (props) => {
-    const {navDrawerOpen, name} = props;
+const LeftDrawer = ({menus, navDrawerOpen, name}) => {
 
     const styles = {
         logo: {
@@ -54,20 +55,21 @@ const LeftDrawer = (props) => {
             <div>
                 <List>
                     <ListItem
-                        key="0"
-                        primaryText="Dashboard"
-                        leftIcon={<DashboardIcon />}
                         containerElement={<Link to="/" />}
+                        key="0"
+                        leftIcon={<DashboardIcon />}
+                        primaryText="Dashboard"
                     />
-                    {props.menus.map((menu, index) =>
-                        (<ListItem
+                    {menus.map((menu, index) => (
+                        <ListItem
                             initiallyOpen
-                            primaryTogglesNestedList
-                            key={index}
-                            primaryText={menu.name}
+                            key={menu.name}
                             leftIcon={<Device />}
                             nestedItems={sumMenu(menu, index)}
-                        />))}
+                            primaryText={menu.name}
+                            primaryTogglesNestedList
+                        />
+                    ))}
                 </List>
             </div>
         </Drawer>
@@ -75,9 +77,9 @@ const LeftDrawer = (props) => {
 };
 
 LeftDrawer.propTypes = {
-    navDrawerOpen: PropTypes.bool.isRequired,
     menus: PropTypes.array.isRequired,
-    name: PropTypes.string.isRequired
+    name: PropTypes.string.isRequired,
+    navDrawerOpen: PropTypes.bool.isRequired
 };
 
 export default LeftDrawer;

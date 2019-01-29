@@ -21,15 +21,18 @@ const parser = (data) => {
 };
 
 const parseName = (name) => {
-    return name ? name.replace('/', '')
-        .replace(/_/g, ' ') : '';
+    return name ? name.replace('/', '').
+        replace(/_/g, ' ') : '';
 };
 
 const getDockerFromList = (servers = [], id, index = 0) => {
     let data = servers[index] ? servers[index].list.find(element => (element.id === id)) : {};
     if (servers[index]) {
         const URL = {URL: servers[index].URL};
-        data = {...data, ...URL};
+        data = {
+            ...data,
+            ...URL
+        };
     }
     return data;
 };
@@ -39,8 +42,8 @@ const getIcon = (state) => {
 };
 
 const networkParser = (network) => {
-    return Object.keys(network)
-        .map((element) => {
+    return Object.keys(network).
+        map((element) => {
             return {
                 address: network[element].IPAddress,
                 gateway: network[element].Gateway
@@ -49,8 +52,16 @@ const networkParser = (network) => {
 };
 
 const bytesToSize = (bytes) => {
-    const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
-    if (bytes === 0) return '0 Byte';
+    const sizes = [
+        'Bytes',
+        'KB',
+        'MB',
+        'GB',
+        'TB'
+    ];
+    if (bytes === 0) {
+        return '0 Byte';
+    }
     const i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)), 10);
     return `${Math.round(bytes / (1024 ** i), 2)} ${sizes[i]}`;
 };
@@ -94,8 +105,8 @@ const metricParser = (metrics) => {
     let received = 0;
     let sent = 0;
     if (networks) {
-        Object.keys(networks)
-            .map((inteface) => {
+        Object.keys(networks).
+            map((inteface) => {
                 received += networks[inteface].rx_bytes;
                 sent += networks[inteface].tx_bytes;
                 return true;

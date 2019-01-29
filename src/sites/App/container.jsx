@@ -8,9 +8,7 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => {
-    return {
-        fetchDataFromURL: () => dispatch(addFetchedData())
-    };
+    return {fetchDataFromURL: () => dispatch(addFetchedData())};
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

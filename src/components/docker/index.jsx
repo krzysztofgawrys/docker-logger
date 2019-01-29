@@ -7,9 +7,7 @@ const mapStateToProps = () => {
 };
 
 const mapDispatchToProps = (dispatch) => {
-    return {
-        getStatsForDocker: URL => dispatch(getStatsForDocker(URL))
-    };
+    return {getStatsForDocker: URL => dispatch(getStatsForDocker(URL))};
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Container);
