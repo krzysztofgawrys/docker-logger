@@ -1,33 +1,30 @@
-import React, {Component, Fragment} from 'react';
-import withWidth, {SMALL} from 'material-ui/utils/withWidth';
+import React, { Component, Fragment } from 'react';
+import withWidth, { SMALL } from 'material-ui/utils/withWidth';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import LeftDrawer from '../components/view/LeftDrawer';
 import Header from '../components/view/Header';
+import PropTypes from 'prop-types';
 import '../style/index.scss';
 
 class Index extends Component {
-    state = {
-        navDrawerOpen: this.props.width !== SMALL
-    };
+    // eslint-disable-next-line react/destructuring-assignment
+    state = { navDrawerOpen: this.props.width !== SMALL };
 
-    handleChangeRequestNavDrawer = () => {
-        this.setState({
-            navDrawerOpen: !this.state.navDrawerOpen
-        });
+    onhandleChangeRequestNavDrawer = () => {
+        const { navDrawerOpen } = this.state;
+        this.setState({ navDrawerOpen: !navDrawerOpen });
     };
 
     render() {
         const paddingLeftDrawerOpen = 276;
-        const {servers} = this.props;
-        const {navDrawerOpen} = this.state;
+        const { servers, width, children } = this.props;
+        const { navDrawerOpen } = this.state;
 
         const styles = {
-            header: {
-                paddingLeft: navDrawerOpen ? paddingLeftDrawerOpen : 0
-            },
+            header: { paddingLeft: navDrawerOpen ? paddingLeftDrawerOpen : 0 },
             container: {
                 margin: '80px 20px 20px 15px',
-                paddingLeft: navDrawerOpen && this.props.width !== SMALL ? paddingLeftDrawerOpen : 0
+                paddingLeft: navDrawerOpen && width !== SMALL ? paddingLeftDrawerOpen : 0
             }
         };
 
@@ -35,22 +32,28 @@ class Index extends Component {
             <MuiThemeProvider>
                 <Fragment>
                     <Header
+                        handleChangeRequestNavDrawer={this.onhandleChangeRequestNavDrawer}
                         styles={styles.header}
-                        handleChangeRequestNavDrawer={this.handleChangeRequestNavDrawer}
                         title="Docker Logger"
                     />
                     <LeftDrawer
-                        navDrawerOpen={navDrawerOpen}
                         menus={servers}
                         name="Menu"
+                        navDrawerOpen={navDrawerOpen}
                     />
                     <div style={styles.container}>
-                        {this.props.children}
+                        {children}
                     </div>
                 </Fragment>
             </MuiThemeProvider>
         );
     }
 }
+
+Index.propTypes = {
+    children: PropTypes.node.isRequired,
+    servers: PropTypes.array.isRequired,
+    width: PropTypes.number.isRequired
+};
 
 export default withWidth()(Index);

@@ -1,8 +1,9 @@
-import React, {Fragment} from 'react';
-import {Row, Col} from 'react-grid-system';
+import React, { Fragment } from 'react';
+import { Row, Col } from 'react-grid-system';
 import Info from '../../components/info';
+import PropTypes from 'prop-types';
 
-const displayMessageOrInfo = (message, servers) => {
+const displayMessageOrInfo = servers => {
     let ret = null;
     const errors = [];
     if (servers) {
@@ -14,9 +15,13 @@ const displayMessageOrInfo = (message, servers) => {
                             errors.push(element.error)
                         ) : null;
                         return (
+                            // eslint-disable-next-line react/no-array-index-key
                             <Fragment key={i}>
                                 {element.name ? (
-                                    <Col lg={3} xs={12}>
+                                    <Col
+                                        lg={3}
+                                        xs={12}
+                                    >
                                         <Info {...element} />
                                     </Col>
                                 ) : <span />
@@ -32,23 +37,29 @@ const displayMessageOrInfo = (message, servers) => {
 };
 
 const Home = (props) => {
-    const {message, servers} = props;
+    const { servers } = props;
     return (
         <div>
             <div className="homeBlock">
-                <h1>Dockers logger</h1>
-                <p>Open source application to display information about dockers status. Multi servers are
-                    available.
+                <h1>
+                    {'Dockers logger'}
+                </h1>
+                <p>
+                    {'Open source application to display information about dockers status. Multi servers are available.'}
                 </p>
-                <p>To add own servers you have to edit <b>config.json</b> file and insert own data.
+                <p>
+                    {`To add own servers you have to edit {'config.json'} file and insert own data.`}
                 </p>
             </div>
             <div className="homeBlock">
-                <h1>Available servers</h1>
-                {displayMessageOrInfo(message, servers)}
+                <h1>
+                    {'Available servers'}
+                </h1>
+                {displayMessageOrInfo(servers)}
             </div>
         </div>
     );
 };
 
+Home.propTypes = {servers: PropTypes.array.isRequired };
 export default Home;

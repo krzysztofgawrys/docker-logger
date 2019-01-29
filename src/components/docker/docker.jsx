@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
-import {Card, CardActions, CardHeader, CardTitle, CardText} from 'material-ui/Card';
+import {
+    Card, CardActions, CardHeader, CardTitle, CardText
+} from 'material-ui/Card';
 import {LazyLog, ScrollFollow} from 'react-lazylog';
 import FlatButton from 'material-ui/FlatButton';
 import {Row, Col} from 'react-grid-system';
@@ -14,6 +16,7 @@ import {Tabs, Tab} from 'material-ui/Tabs';
 import {parseName, networkParser, bytesToSize} from '../../utils/parser';
 import Metric from '../metric';
 import Terminal from '../terminal';
+import PropTypes from 'prop-types';
 
 const logsOutput = (id, URL) => {
     let ret = null;
@@ -23,7 +26,13 @@ const logsOutput = (id, URL) => {
                 <CardTitle title="Logs from container" />
                 <div className="logsSpace">
                     <ScrollFollow render={({follow, onScroll}) => (
-                        <LazyLog selectableLines stream url={URL} follow={follow} onScroll={onScroll} />
+                        <LazyLog
+                            follow={follow}
+                            onScroll={onScroll}
+                            selectableLines
+                            stream
+                            url={URL}
+                        />
                     )}
                     />
                 </div>
@@ -40,23 +49,27 @@ const showMetric = (metric) => {
             <List>
                 <ListItem leftIcon={<MemoryIcon />}>
                     <Metric
+                        label={`Memory usage: ${metric.memory.usingText}/${metric.memory.limitText}`}
                         max={metric.memory.limit}
                         value={metric.memory.usage}
-                        label={`Memory usage: ${metric.memory.usingText}/${metric.memory.limitText}`}
                     />
                 </ListItem>
                 <ListItem leftIcon={<MemoryIcon />}>
                     <Metric
+                        label={`CPU usage: ${metric.cpu.percUsage}%`}
                         max={metric.cpu.system_cpu}
                         value={metric.cpu.total_usage}
-                        label={`CPU usage: ${metric.cpu.percUsage}%`}
                     />
                 </ListItem>
                 <ListItem leftIcon={<NetworkIcon />}>
-                    <span>Network: {bytesToSize(metric.networksData.sent)}/{bytesToSize(metric.networksData.received)}</span>
+                    <span>
+                        {`Network: ${bytesToSize(metric.networksData.sent)}/${bytesToSize(metric.networksData.received)}`}
+                    </span>
                 </ListItem>
                 <ListItem leftIcon={<PidsIcon />}>
-                    <span>PIDS: {metric.pids}</span>
+                    <span>
+                        {`PIDS: ${metric.pids}`}
+                    </span>
                 </ListItem>
 
             </List>
@@ -66,9 +79,7 @@ const showMetric = (metric) => {
 };
 
 class DockerComponent extends Component {
-    state = {
-        tab: 'console'
-    };
+    state = {tab: 'console'};
 
     static getDerivedStateFromProps(nextProps) {
         if (nextProps.docker.URL && nextProps.getStatsForDocker) {
@@ -79,16 +90,14 @@ class DockerComponent extends Component {
     }
 
     handleChange = (value) => {
-        this.setState({
-            tab: value
-        });
+        this.setState({tab: value});
     };
 
     render() {
         const {docker, metric} = this.props;
         const network = docker.network ? networkParser(docker.network) : null;
         const URL = `${docker.URL}/containers/${docker.id}/logs?stderr=1&stdout=1&timestamps=1&follow=1&tail=1000`;
-
+        const {tab} = this.state;
         return (
             <div>
 
@@ -96,14 +105,17 @@ class DockerComponent extends Component {
                     <Card>
                         <CardHeader
                             actAsExpander
-                            showExpandableButton
-                            title={`${parseName(docker.name)} details`}
-                            subtitle={`ID: ${docker.id}`}
                             avatar={<CloudDone color={green500} />}
+                            showExpandableButton
+                            subtitle={`ID: ${docker.id}`}
+                            title={`${parseName(docker.name)} details`}
                         />
                         <CardText expandable>
                             <Row>
-                                <Col sm={6} xs={12}>
+                                <Col
+                                    sm={6}
+                                    xs={12}
+                                >
                                     <List>
                                         <ListItem
                                             leftIcon={<CloudDone />}
@@ -122,26 +134,43 @@ class DockerComponent extends Component {
                                         />
                                     </List>
                                 </Col>
-                                <Col sm={6} xs={12}>
+                                <Col
+                                    sm={6}
+                                    xs={12}
+                                >
                                     {showMetric(metric)}
                                 </Col>
                             </Row>
                         </CardText>
                         <CardActions>
-                            <FlatButton label="restart" primary />
-                            <FlatButton label="stop" secondary />
+                            <FlatButton
+                                label="restart"
+                                primary
+                            />
+                            <FlatButton
+                                label="stop"
+                                secondary
+                            />
                         </CardActions>
                     </Card>
                     <Tabs
-                        value={this.state.tab}
                         onChange={this.handleChange}
+                        value={tab}
                     >
-                        <Tab label="Console" value="console" buttonStyle={{background: '#1e88e5'}}>
+                        <Tab
+                            buttonStyle={{background: '#1e88e5'}}
+                            label="Console"
+                            value="console"
+                        >
                             <div className="logs">
                                 {logsOutput(docker.id, URL)}
                             </div>
                         </Tab>
-                        <Tab label="Terminal" value="terminal" buttonStyle={{background: '#1e88e5'}}>
+                        <Tab
+                            buttonStyle={{background: '#1e88e5'}}
+                            label="Terminal"
+                            value="terminal"
+                        >
                             <Terminal docker={docker} />
                         </Tab>
                     </Tabs>
@@ -150,5 +179,13 @@ class DockerComponent extends Component {
         );
     }
 }
+
+
+DockerComponent.propTypes = {
+    docker: PropTypes.object.isRequired,
+    metric: PropTypes.object
+};
+
+DockerComponent.defaultProps = {metric: {}};
 
 export default DockerComponent;

@@ -48,16 +48,16 @@ const addFetchedData = () => {
     return (dispatch) => {
         if (config) {
             config.map((server) => {
-                return fetchDataFromURL(`${server.URL}/containers/json`)
-                    .then((data) => {
+                return fetchDataFromURL(`${server.URL}/containers/json`).
+                    then((data) => {
                         const dockers = parser(data.data);
                         if (dockers.length > 0) {
                             dispatch(addDockers(server.NAME, server.URL, dockers));
                         } else {
                             dispatch(addError(server.NAME, server.URL, `Docker not detected for ${server.NAME} [${server.URL}]`));
                         }
-                    })
-                    .catch(() => {
+                    }).
+                    catch(() => {
                         dispatch(addError(server.NAME, server.URL, `Docker not detected for ${server.NAME} [${server.URL}]`));
                     });
             });
@@ -70,8 +70,8 @@ const addFetchedData = () => {
 
 const getStatsForDocker = (URL) => {
     return (dispatch) => {
-        fetchDataFromURL(URL)
-            .then((resp) => {
+        fetchDataFromURL(URL).
+            then((resp) => {
                 dispatch(addMetric(metricParser(resp.data)));
             });
     };

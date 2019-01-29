@@ -12,11 +12,7 @@ exports[`home site should be rendered 1`] = `
       Open source application to display information about dockers status. Multi servers are available.
     </p>
     <p>
-      To add own servers you have to edit 
-      <b>
-        config.json
-      </b>
-       file and insert own data.
+      To add own servers you have to edit {'config.json'} file and insert own data.
     </p>
   </div>
   <div
@@ -25,6 +21,15 @@ exports[`home site should be rendered 1`] = `
     <h1>
       Available servers
     </h1>
+    <Row
+      align="normal"
+      component="div"
+      debug={false}
+      justify="start"
+      nogutter={false}
+      style={Object {}}
+      xs={16}
+    />
   </div>
 </div>
 `;

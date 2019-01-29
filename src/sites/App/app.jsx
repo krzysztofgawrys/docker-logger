@@ -1,14 +1,16 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
 import Router from '../../router/index';
+import PropTypes from 'prop-types';
 
 class App extends Component {
     componentDidMount() {
-        this.props.fetchDataFromURL();
+        const { fetchDataFromURL } = this.props;
+        fetchDataFromURL();
     }
 
     render() {
-        const {servers} = this.props;
+        const { servers } = this.props;
         return (
             <div>
                 <Router servers={servers} />
@@ -17,5 +19,12 @@ class App extends Component {
         );
     }
 }
+
+App.propTypes = {
+    fetchDataFromURL: PropTypes.func.isRequired,
+    servers: PropTypes.array
+};
+
+App.defaultProps = {servers: []};
 
 export default App;
