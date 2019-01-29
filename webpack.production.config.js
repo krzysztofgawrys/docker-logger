@@ -8,19 +8,20 @@ const CompressionPlugin = require('compression-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const {resolve} = require('path');
 
-loaders.push({
-        test: /\.scss$/,
-        loader: ExtractTextPlugin.extract({
-            fallback: 'style-loader',
-            use: 'css-loader?-minimize?sourceMap&localIdentName=[local]___[hash:base64:5]!sass-loader?outputStyle=compressed'
-        }),
-        exclude: ['node_modules']
-    },
-    {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: 'babel-loader'
-    }
+loaders.push(
+{
+    exclude: [/node_modules/],
+    loader: ExtractTextPlugin.extract({
+        fallback: 'style-loader',
+        use: 'css-loader?!sass-loader?outputStyle=compressed'
+    }),
+    test: /\.scss$/
+},
+{
+    exclude: [/node_modules/],
+    loader: 'babel-loader',
+    test: /\.js$/
+}
 );
 
 module.exports = {
@@ -44,7 +45,7 @@ module.exports = {
     optimization: {
         minimize: true
     },
-    performance: { hints: false },
+    performance: {hints: false},
     plugins: [
         new WebpackCleanupPlugin(),
         new webpack.DefinePlugin({
