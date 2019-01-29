@@ -6,27 +6,28 @@ const WebpackCleanupPlugin = require('webpack-cleanup-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const {resolve} = require('path');
+const { resolve } = require('path');
 
 loaders.push(
-{
-    exclude: [/node_modules/],
-    loader: ExtractTextPlugin.extract({
-        fallback: 'style-loader',
-        use: 'css-loader?!sass-loader?outputStyle=compressed'
-    }),
-    test: /\.scss$/
-},
-{
-    exclude: [/node_modules/],
-    loader: 'babel-loader',
-    test: /\.js$/
-}
+    {
+        exclude: [/node_modules/],
+        loader: ExtractTextPlugin.extract({
+            fallback: 'style-loader',
+            use: 'css-loader?!sass-loader?outputStyle=compressed'
+        }),
+        test: /\.scss$/
+    },
+    {
+        exclude: [/node_modules/],
+        loader: 'babel-loader',
+        test: /\.js$/
+    }
 );
 
 module.exports = {
     entry: [
-        'babel-polyfill',
+        '@babel/polyfill',
+
         './src/index.jsx',
         './src/style/index.scss'
     ],
@@ -36,16 +37,16 @@ module.exports = {
         filename: '[chunkhash].js'
     },
     resolve: {
-        extensions: ['.js', '.jsx']
+        extensions:
+            [
+                '.js',
+                '.jsx'
+            ]
     },
-    module: {
-        rules: loaders
-    },
+    module: { rules: loaders },
     devtool: 'source-map',
-    optimization: {
-        minimize: true
-    },
-    performance: {hints: false},
+    optimization: { minimize: true },
+    performance: { hints: false },
     plugins: [
         new WebpackCleanupPlugin(),
         new webpack.DefinePlugin({
@@ -62,11 +63,12 @@ module.exports = {
         }),
         new webpack.NoEmitOnErrorsPlugin(),
         new CompressionPlugin({
-            asset: '[path].gz[query]',
             algorithm: 'gzip',
+            compressionOptions: { level: 1 },
+            filename: '[path].gz[query]',
+            minRatio: 0,
             test: /\.js$|\.css$|\.html$/,
-            threshold: 10240,
-            minRatio: 0
+            threshold: 10240
         }),
         new HtmlWebpackPlugin({
             template: './public/index.html',
@@ -75,9 +77,11 @@ module.exports = {
                 js: ['[chunkhash].js']
             }
         }),
-        new CopyWebpackPlugin([{
-            from: resolve(__dirname, 'public/pwa/'),
-            to: resolve(__dirname, 'dist/')
-        }])
+        new CopyWebpackPlugin([
+            {
+                from: resolve(__dirname, 'public/pwa/'),
+                to: resolve(__dirname, 'dist/')
+            }
+        ])
     ]
 };
