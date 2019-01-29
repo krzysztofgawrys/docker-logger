@@ -2,6 +2,8 @@
 
 exports[`app site should be rendered 1`] = `
 <div>
-  <RouterElements />
+  <RouterElements
+    servers={Array []}
+  />
 </div>
 `;

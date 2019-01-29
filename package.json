@@ -10,7 +10,7 @@
       "start": "webpack-dev-server --mode development --progress --profile --colors --open",
       "build": "webpack --mode production --config=webpack.production.config.js --progress --profile --colors",
       "test": "yarn lint && yarn jest",
-      "jest": "jest --coverage --verbose",
+      "jest": "jest --coverage --verbose --u --no-watchman",
       "lint": "eslint src --ext .js --ext .jsx && eslint test --ext .js --ext .jsx",
       "lint:fix": "eslint src --ext .js --ext .jsx --fix  && eslint test --ext .js --ext .jsx --fix"
     },
@@ -63,7 +63,8 @@
       "extract-text-webpack-plugin": "^4.0.0-beta.0",
       "file-loader": "^3.0.0",
       "html-webpack-plugin": "^3.0.6",
-      "jest": "^22.0.0",
+      "jsdom": "13.1.0",
+      "jest": "^24.0.0",
       "node-sass": "^4.6.0",
       "react-hot-loader": "^4.0.0",
       "react-test-renderer": "^16.6.2",
@@ -84,14 +85,19 @@
         "\\.(jpe?g|png|gif|eot|otf|webp|svg|ttf|woff2?|mp[34]|webm|wav|m4a|aac|oga)$": "<rootDir>/test/__mocks__/fileMock.js",
         "\\.(css|less|s[ac]ss|styl)$": "<rootDir>/test/__mocks__/styleMock.js"
       },
+      "transformIgnorePatterns": [
+        "[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$"
+      ],
       "moduleFileExtensions": [
         "js",
         "jsx"
       ],
+      "modulePaths": [
+        "<rootDir>"
+      ],
       "setupFiles": [
         "./test/jestsetup.jsx"
       ],
-      "testURL": "http://localhost",
       "snapshotSerializers": [
         "enzyme-to-json/serializer"
       ]
