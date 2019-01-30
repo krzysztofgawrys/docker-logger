@@ -105,7 +105,7 @@ class DockerComponent extends Component {
         const { docker, metric } = this.props;
         const network = docker.network ? networkParser(docker.network) : null;
         const URL = `${docker.URL}/containers/${docker.id}/logs?stderr=1&stdout=1&timestamps=1`;
-        
+
         const { tab } = this.state;
         return (
             <div>
