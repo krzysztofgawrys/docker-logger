@@ -1,37 +1,41 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
     Card, CardActions, CardHeader, CardTitle, CardText
 } from 'material-ui/Card';
-import {LazyLog, ScrollFollow} from 'react-lazylog';
+import { LazyLog, ScrollFollow } from 'react-lazylog';
 import FlatButton from 'material-ui/FlatButton';
-import {Row, Col} from 'react-grid-system';
-import {List, ListItem} from 'material-ui/List';
+import { Row, Col } from 'react-grid-system';
+import { List, ListItem } from 'material-ui/List';
 import CloudDone from 'material-ui/svg-icons/file/cloud-done';
-import {green500} from 'material-ui/styles/colors';
+import { green500 } from 'material-ui/styles/colors';
 import NetworkIcon from 'material-ui/svg-icons/notification/network-check';
 import MemoryIcon from 'material-ui/svg-icons/hardware/memory';
 import PidsIcon from 'material-ui/svg-icons/editor/insert-chart';
-import {Tabs, Tab} from 'material-ui/Tabs';
-
-import {parseName, networkParser, bytesToSize} from '../../utils/parser';
+import { Tabs, Tab } from 'material-ui/Tabs';
+import { parseName, networkParser, bytesToSize } from '../../utils/parser';
 import Metric from '../metric';
 import Terminal from '../terminal';
 import PropTypes from 'prop-types';
 
-const logsOutput = (id, URL) => {
+const logsOutput = (id, URL, onClick) => {
     let ret = null;
     if (id) {
         ret = (
             <Card>
                 <CardTitle title="Logs from container" />
                 <div className="logsSpace">
-                    <ScrollFollow render={({follow, onScroll}) => (
+                    <FlatButton
+                        label="Download logs"
+                        onClick={() => onClick(URL)}
+                        secondary
+                    />
+                    <ScrollFollow render={({ follow, onScroll }) => (
                         <LazyLog
                             follow={follow}
                             onScroll={onScroll}
                             selectableLines
                             stream
-                            url={URL}
+                            url={`${URL}&follow=1&tail=1000`}
                         />
                     )}
                     />
@@ -79,7 +83,7 @@ const showMetric = (metric) => {
 };
 
 class DockerComponent extends Component {
-    state = {tab: 'console'};
+    state = { tab: 'console' };
 
     static getDerivedStateFromProps(nextProps) {
         if (nextProps.docker.URL && nextProps.getStatsForDocker) {
@@ -90,14 +94,19 @@ class DockerComponent extends Component {
     }
 
     handleChange = (value) => {
-        this.setState({tab: value});
+        this.setState({ tab: value });
     };
 
+    onClickDownloads = (URL) => {
+        window.open(URL, '_blank');
+    }
+
     render() {
-        const {docker, metric} = this.props;
+        const { docker, metric } = this.props;
         const network = docker.network ? networkParser(docker.network) : null;
-        const URL = `${docker.URL}/containers/${docker.id}/logs?stderr=1&stdout=1&timestamps=1&follow=1&tail=1000`;
-        const {tab} = this.state;
+        const URL = `${docker.URL}/containers/${docker.id}/logs?stderr=1&stdout=1&timestamps=1`;
+
+        const { tab } = this.state;
         return (
             <div>
 
@@ -158,16 +167,16 @@ class DockerComponent extends Component {
                         value={tab}
                     >
                         <Tab
-                            buttonStyle={{background: '#1e88e5'}}
+                            buttonStyle={{ background: '#1e88e5' }}
                             label="Console"
                             value="console"
                         >
                             <div className="logs">
-                                {logsOutput(docker.id, URL)}
+                                {logsOutput(docker.id, URL, this.onClickDownloads)}
                             </div>
                         </Tab>
                         <Tab
-                            buttonStyle={{background: '#1e88e5'}}
+                            buttonStyle={{ background: '#1e88e5' }}
                             label="Terminal"
                             value="terminal"
                         >
@@ -186,6 +195,6 @@ DockerComponent.propTypes = {
     metric: PropTypes.object
 };
 
-DockerComponent.defaultProps = {metric: {}};
+DockerComponent.defaultProps = { metric: {} };
 
 export default DockerComponent;
