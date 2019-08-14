@@ -1,0 +1,3 @@
+export const SET_DOCKERS = 'SET_DOCKERS';
+export const SET_DOCKERS_ERROR = 'SET_DOCKERS_ERROR';
+export const NO_DOCKERS = 'NO_DOCKERS';

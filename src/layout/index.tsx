@@ -8,12 +8,9 @@ import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import Container from '@material-ui/core/Container';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import { mainListItems, secondaryListItems } from '../components/listItems';
+import { mainListItems } from '../components/listItems';
 import Header from './header';
 import Footer from './footer';
-// import Chart from './Chart';
-// import Deposits from './Deposits';
-// import Orders from './Orders';
 
 interface IndexProps {
   children: JSX.Element[] | JSX.Element
@@ -114,8 +111,6 @@ const Index: React.SFC<IndexProps> = (props) => {
         </div>
         <Divider />
         <List>{mainListItems}</List>
-        <Divider />
-        <List>{secondaryListItems}</List>
       </Drawer>
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />

@@ -1,15 +1,19 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import clsx from 'clsx';
-import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-// import Chart from './Chart';
-// import Deposits from './Deposits';
-// import Orders from './Orders';
+import { withStyles, Theme, createStyles } from '@material-ui/core';
+import Server from '../../components/server';
+import { IServer } from '../../interfaces/docker';
+
+interface Props {
+  getDockersFromDefinedServers(): void,
+  classes: any,
+  servers?: IServer[]
+}
 
 
-const useStyles = makeStyles(theme => ({
-
+const styles = (theme: Theme) => createStyles({
   paper: {
     padding: theme.spacing(2),
     display: 'flex',
@@ -17,34 +21,37 @@ const useStyles = makeStyles(theme => ({
     flexDirection: 'column',
   },
   fixedHeight: {
-    height: 240,
+    height: 'auto',
   },
-}));
+});
 
-export default function Dashboard() {
-  const classes = useStyles();
-  const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
+class Home extends PureComponent<Props> {
 
-  return (
-    <Grid container spacing={3}>
-      {/* Chart */}
-      <Grid item xs={12} md={8} lg={9}>
-        <Paper className={fixedHeightPaper}>
-          <div>PLACE FOR THIS</div>
-        </Paper>
+  componentDidMount() {
+    this.props.getDockersFromDefinedServers();
+  }
+
+  render() {
+    const { classes, servers } = this.props;
+    const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
+
+    return (
+      <Grid container spacing={3}>
+        {/* Chart */}
+        <Grid item xs={12} md={8} lg={9}>
+          <Paper className={fixedHeightPaper}>
+            {servers && servers.map((server, index) => <Server key={`${server.name}${index}`} server={server} index={index} />)}
+          </Paper>
+        </Grid>
+        {/* Recent Deposits */}
+        <Grid item xs={12} md={4} lg={3}>
+          <Paper className={fixedHeightPaper}>
+            <div>PLACE FOR THIS 2</div>
+          </Paper>
+        </Grid>
       </Grid>
-      {/* Recent Deposits */}
-      <Grid item xs={12} md={4} lg={3}>
-        <Paper className={fixedHeightPaper}>
-          <div>PLACE FOR THIS 2</div>
-        </Paper>
-      </Grid>
-      {/* Recent Orders */}
-      <Grid item xs={12}>
-        <Paper className={classes.paper}>
-          <div>PLACE FOR THIS 3</div>
-        </Paper>
-      </Grid>
-    </Grid>
-  );
+    );
+  }
 }
+
+export default withStyles(styles)(Home);

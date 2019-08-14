@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import dockers from './docker';
+import docker from './docker';
 
-const reducers = combineReducers({ dockers });
+const reducers = combineReducers({ docker });
 
 export default reducers;
