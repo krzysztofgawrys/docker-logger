@@ -9,7 +9,6 @@ interface IState {
 }
 
 const mapStateToProps = (state: IState) => {
-  console.log(state);
   return {
     servers: state.docker.servers
   };

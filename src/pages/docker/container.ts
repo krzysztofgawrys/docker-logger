@@ -13,7 +13,6 @@ interface IState {
 
 const mapStateToProps = (state: IState, ownProps: any) => {
     const { dockerId, serverId } = ownProps.match.params;
-    console.log(state);
     const docker: IDockerAfterParse | undefined = getDockerFromList(state.docker.servers, dockerId, serverId);
     return {
         docker

@@ -9,6 +9,7 @@ import IconWrapper from '../../components/iconWrapper';
 import DockerIcon from '@iconify/icons-mdi/docker';
 import TerminalIcon from '@iconify/icons-mdi/terminal';
 import TabPanel from '../../components/tabPabel';
+import Terminal from '../../components/terminal';
 
 
 interface DockerProps extends RouteComponentProps<any> {
@@ -19,7 +20,7 @@ const Docker: React.SFC<DockerProps> = (props: DockerProps) => {
 
     const [value, setValue] = React.useState(0);
 
-    function handleChange(event: React.ChangeEvent<{}>, newValue: number) {
+    const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
         setValue(newValue);
     }
 
@@ -35,12 +36,8 @@ const Docker: React.SFC<DockerProps> = (props: DockerProps) => {
                         <DockerLogs docker={docker} />
                     </TabPanel>
                     <TabPanel value={value} index={1}>
-                        Item Two
+                        <Terminal docker={docker} />
                     </TabPanel>
-                    <TabPanel value={value} index={2}>
-                        Item Three
-                    </TabPanel>
-
                     <Tabs
                         value={value}
                         onChange={handleChange}
