@@ -2,25 +2,29 @@ import React from 'react';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import DashboardIcon from '@material-ui/icons/Dashboard';
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import InfoIcon from '@material-ui/icons/Info';
 import { Link } from 'react-router-dom';
+
+import IconWrapper from '../components/iconWrapper';
+import DockerIcon from '@iconify/icons-mdi/docker';
 
 export const mainListItems = (
   <div>
     <Link to={'/'}>
       <ListItem button>
         <ListItemIcon>
-          <DashboardIcon />
+          <IconWrapper
+            icon={DockerIcon}
+          />
         </ListItemIcon>
-        <ListItemText primary="Dashboard" />
+        <ListItemText primary="Dockers" />
       </ListItem>
     </Link>
     <ListItem button>
       <ListItemIcon>
-        <ShoppingCartIcon />
+        <InfoIcon />
       </ListItemIcon>
-      <ListItemText primary="Orders" />
+      <ListItemText primary="Info" />
     </ListItem>
   </div>
 );

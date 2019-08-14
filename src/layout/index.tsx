@@ -85,7 +85,7 @@ const useStyles = makeStyles(theme => ({
 
 const Index: React.SFC<IndexProps> = (props) => {
   const classes = useStyles();
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = React.useState(false);
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -114,7 +114,7 @@ const Index: React.SFC<IndexProps> = (props) => {
       </Drawer>
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
-        <Container maxWidth="lg" className={classes.container}>
+        <Container maxWidth="xl" className={classes.container}>
           {props.children}
         </Container>
         <Footer />

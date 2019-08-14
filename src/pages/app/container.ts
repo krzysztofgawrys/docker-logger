@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
-import Container from './Home';
+import Container from './App';
+import { getDockersFromDefinedServers } from '../../actions/servers';
 import { IServer } from '../../interfaces/docker';
 
 interface IState {
@@ -8,15 +9,16 @@ interface IState {
   }
 }
 
+
 const mapStateToProps = (state: IState) => {
-  console.log(state);
   return {
     servers: state.docker.servers
   };
 };
 
-const mapDispatchToProps = () => {
+const mapDispatchToProps = (dispatch: any) => {
   return {
+    getDockersFromDefinedServers: () => dispatch(getDockersFromDefinedServers()),
   };
 };
 

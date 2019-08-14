@@ -9,7 +9,7 @@ interface IInitialState {
 
 const initialState: IInitialState = {
     servers: [],
-    message: ""
+    message: ''
 };
 
 const docker = (state = initialState, action: AnyAction) => {

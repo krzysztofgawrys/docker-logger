@@ -1,7 +1,7 @@
+import axios from 'axios';
 import { LIST_OF_CONTAINERS } from '../consts/urls';
 import config from '../config.json';
 import { Dispatch } from 'redux';
-import axios from 'axios';
 import { parser } from '../utils/parser';
 import { IDockerAfterParse } from '../interfaces/docker';
 import { SET_DOCKERS, SET_DOCKERS_ERROR, NO_DOCKERS } from '../consts/actions';
