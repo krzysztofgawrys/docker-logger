@@ -17,10 +17,11 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 
+
 const DockerLogs: React.SFC<DockerProps> = (props) => {
 
     const classes = useStyles();
-    const URL = props.docker ? `${props.docker.URL}/containers/${props.docker.id}/logs?stderr=1&stdout=1&timestamps=1` : '';
+    const URL = props.docker ? `${props.docker.URL}/containers/${props.docker.id}/logs?stderr=1&stdout=1&timestamps=1&follow=1` : '';
 
     return (
         <div className={classes.dockerBox}>

@@ -2,7 +2,6 @@ import React from 'react';
 import ReactTerminal from 'terminal-in-react';
 import sendCMD from '../utils/commands'
 import { IDockerAfterParse } from '../interfaces/docker';
-import { maxWidth } from '@material-ui/system';
 import { createStyles, makeStyles, Theme } from '@material-ui/core';
 
 

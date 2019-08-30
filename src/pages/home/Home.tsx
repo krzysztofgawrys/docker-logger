@@ -10,7 +10,6 @@ interface Props {
   servers?: IServer[]
 }
 
-
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     paper: {
