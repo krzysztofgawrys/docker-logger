@@ -1,0 +1,11 @@
+language: node_js
+
+git:
+    depth: 1
+
+node_js:
+  - '7'
+  - '10'
+
+cache: yarn
+after_script: "cat ./coverage/lcov.info | coveralls"
