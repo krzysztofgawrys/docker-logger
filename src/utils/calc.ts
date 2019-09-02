@@ -15,6 +15,12 @@ export const bytesToSize = (bytes: number) => {
     return `${Math.round(bytes / (1024 ** i))} ${sizes[i]}`;
 };
 
+
+export const bytesToMB = (bytes: number) => {
+    const i = 2;
+    return Math.round(bytes / (1024 ** i));
+};
+
 export const calculateCPUPercent = (precpuStats: IMetricCPU, cpuStats: IMetricCPU) => {
     let cpuPercent = 0.0;
     const cpuDelta = cpuStats.cpu_usage.total_usage - precpuStats.cpu_usage.total_usage;

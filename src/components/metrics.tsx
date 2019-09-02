@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { IDockerAfterParse, IMetric } from '../interfaces/docker';
 
 import {
-    AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, Legend, LineChart, Line, ReferenceLine,
+    AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
 } from 'recharts';
 
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
@@ -23,6 +23,9 @@ const useStyles = makeStyles((theme: Theme) =>
         circleChart: {
             maxHeight: 200,
         },
+        header: {
+            textAlign: 'center'
+        }
     }),
 );
 
@@ -46,6 +49,12 @@ const useInterval = (callback: any, delay: number) => {
 
 const Metric: React.SFC<MetricProps> = (props: MetricProps) => {
 
+   const renderColorfulLegendText = (value: number, entry: any) => {
+        const { color } = entry;
+      
+      return <span style={{ color }}>{value} data (MB)</span>;
+    }
+
     useInterval(() => {
         if (props.isActive && props.docker && props.docker.URL) {
             const URL = `${props.docker.URL}/containers/${props.docker.id}/stats?stream=false`;
@@ -53,14 +62,13 @@ const Metric: React.SFC<MetricProps> = (props: MetricProps) => {
         }
     }, 2000);
 
-    console.log(props.metric.cpu[props.metric.cpu.length - 1].system_cpu);
-
     const classes = useStyles();
+
 
     return (
         <Grid container spacing={3}>
             <Grid item lg={4} md={4} xs={12}>
-                <Typography variant="h4" gutterBottom>
+                <Typography className={classes.header} variant="h4" gutterBottom>
                     Network
                 </Typography>
                 <AreaChart
@@ -73,21 +81,35 @@ const Metric: React.SFC<MetricProps> = (props: MetricProps) => {
                 >
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis />
-                    <YAxis type="number" domain={[0, 'dataMax + 500']} />
+                    <YAxis type="number" domain={[0, 'dataMax + 10']} />
                     <Tooltip />
-                    <Legend verticalAlign="top" height={36} />
+                    <Legend formatter={renderColorfulLegendText} verticalAlign="top" height={36} />
                     <Area type="monotone" dataKey="received" stroke="#8884d8" fill="#8884d8" />
                     <Area type="monotone" dataKey="sent" stroke="#82ca9d" fill="#82ca9d" />
                 </AreaChart>
             </Grid>
             <Grid item lg={4} md={4} xs={12}>
-            <Typography variant="h4" gutterBottom>
+            <Typography className={classes.header} variant="h4" gutterBottom>
                     Processor
                 </Typography>
                 <CircularProgressbar
                     className={classes.circleChart}
                     value={props.metric.cpu[props.metric.cpu.length - 1].percUsage}
-                    text={`${props.metric.cpu[props.metric.cpu.length - 1].percUsage}`}
+                    text={`${props.metric.cpu[props.metric.cpu.length - 1].percUsage} %`}
+                    styles={buildStyles({
+                        strokeLinecap: 'butt',
+                    })}
+                />
+            </Grid>
+
+            <Grid item lg={4} md={4} xs={12}>
+            <Typography className={classes.header} variant="h4" gutterBottom>
+                    Memory
+                </Typography>
+                <CircularProgressbar
+                    className={classes.circleChart}
+                    value={props.metric.memory[props.metric.memory.length - 1].percUsage}
+                    text={`${props.metric.memory[props.metric.memory.length - 1].percUsage} %`}
                     styles={buildStyles({
                         strokeLinecap: 'butt',
                     })}

@@ -2,9 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { RouteComponentProps } from "react-router-dom";
 import { IDockerAfterParse, IMetric } from '../../interfaces/docker';
 import DockerLogs from '../../components/dockerLogs';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-import { Typography } from '@material-ui/core';
+import { Typography, BottomNavigation, BottomNavigationAction, AppBar } from '@material-ui/core';
 import IconWrapper from '../../components/iconWrapper';
 import DockerIcon from '@iconify/icons-mdi/docker';
 import MetricIcon from '@iconify/icons-mdi/chart-line';
@@ -55,19 +53,20 @@ const Docker: React.SFC<DockerProps> = (props: DockerProps) => {
                             <Metrics docker={docker} getStatsForDocker={props.getStatsForDocker} isActive={value === METRIC_ID} metric={props.metric} />
                         }
                     </TabPanel>
-                    <Tabs
+                    <AppBar position="fixed" color="primary" style={{top: "auto", bottom: 0}}>
+                    <BottomNavigation
+                       
                         value={value}
-                        onChange={handleChange}
-                        variant="fullWidth"
-                        indicatorColor="primary"
-                        textColor="primary"
-                        aria-label="icon label tabs example"
+                        onChange={(event, newValue) => {
+                            setValue(newValue);
+                        }}
+                        showLabels
                     >
-                        <Tab icon={<IconWrapper icon={DockerIcon} />} label="Logs" />
-                        <Tab icon={<IconWrapper icon={TerminalIcon} />} label="Terminal" />
-                        <Tab icon={<IconWrapper icon={MetricIcon} />} label="Metrics" />
-
-                    </Tabs>
+                        <BottomNavigationAction label="Logs" icon={<IconWrapper icon={DockerIcon} />} />
+                        <BottomNavigationAction label="Terminal" icon={<IconWrapper icon={TerminalIcon} />} />
+                        <BottomNavigationAction label="Metrics" icon={<IconWrapper icon={MetricIcon} />} />
+                    </BottomNavigation>
+                    </AppBar>
 
                 </>
             }

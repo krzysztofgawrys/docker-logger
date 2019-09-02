@@ -1,5 +1,5 @@
 import { IDocker, IDockerAfterParse, IServer, IMetricFromDocker } from '../interfaces/docker';
-import { calculateCPUPercent, bytesToSize } from './calc';
+import { calculateCPUPercent, bytesToSize, bytesToMB } from './calc';
 
 export const parser = (data: IDocker[], URL: string) => {
     const ret: IDockerAfterParse[] = [];
@@ -57,8 +57,8 @@ export const metricParser = (metrics: IMetricFromDocker) => {
             });
     }
     const networksData = {
-        received,
-        sent
+        received: bytesToMB(received),
+        sent: bytesToMB(sent)
     };
 
     const metric = {
@@ -67,6 +67,6 @@ export const metricParser = (metrics: IMetricFromDocker) => {
         cpu,
         networksData
     };
-    
+
     return metric;
 };

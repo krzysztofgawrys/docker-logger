@@ -117,7 +117,6 @@ const Index: React.SFC<IndexProps> = (props) => {
         <Container maxWidth="xl" className={classes.container}>
           {props.children}
         </Container>
-        <Footer />
       </main>
     </div>
   );
