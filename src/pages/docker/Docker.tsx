@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { RouteComponentProps } from "react-router-dom";
 import { IDockerAfterParse, IMetric } from '../../interfaces/docker';
 import DockerLogs from '../../components/dockerLogs';
@@ -22,12 +22,6 @@ interface DockerProps extends RouteComponentProps<any> {
 const Docker: React.SFC<DockerProps> = (props: DockerProps) => {
 
     const [value, setValue] = React.useState(0);
-
-    useEffect(() => {
-        return () => {
-            props.clearMetric();
-        }
-    }, []);
 
     const { docker } = props;
     const METRIC_ID = 2;

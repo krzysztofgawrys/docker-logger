@@ -44,15 +44,15 @@ const useInterval = (callback: any, delay: number) => {
 
         const id = setInterval(tick, delay);
         return () => clearInterval(id);
-    }, []);
+    }, [delay]);
 }
 
 const Metric: React.SFC<MetricProps> = (props: MetricProps) => {
 
-   const renderColorfulLegendText = (value: number, entry: any) => {
+    const renderColorfulLegendText = (value: number, entry: any) => {
         const { color } = entry;
-      
-      return <span style={{ color }}>{value} data (MB)</span>;
+
+        return <span style={{ color }}>{value} data (MB)</span>;
     }
 
     useInterval(() => {
@@ -89,7 +89,7 @@ const Metric: React.SFC<MetricProps> = (props: MetricProps) => {
                 </AreaChart>
             </Grid>
             <Grid item lg={4} md={4} xs={12}>
-            <Typography className={classes.header} variant="h4" gutterBottom>
+                <Typography className={classes.header} variant="h4" gutterBottom>
                     Processor
                 </Typography>
                 <CircularProgressbar
@@ -103,7 +103,7 @@ const Metric: React.SFC<MetricProps> = (props: MetricProps) => {
             </Grid>
 
             <Grid item lg={4} md={4} xs={12}>
-            <Typography className={classes.header} variant="h4" gutterBottom>
+                <Typography className={classes.header} variant="h4" gutterBottom>
                     Memory
                 </Typography>
                 <CircularProgressbar
