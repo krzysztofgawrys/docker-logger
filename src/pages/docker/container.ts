@@ -1,7 +1,6 @@
 import { connect } from 'react-redux';
 import Container from './Docker';
 import { withRouter } from 'react-router-dom';
-import { Dispatch } from 'redux';
 import { IServer, IDockerAfterParse, IMetric, IMetricForDocker } from '../../interfaces/docker';
 import { getDockerFromList } from '../../utils/parser';
 import { getStatsForDocker, clearMetric, } from '../../actions/servers';
@@ -14,6 +13,7 @@ interface IState {
     }
 }
 
+// tslint:disable-next-line:no-any
 const mapStateToProps = (state: IState, ownProps: any) => {
     const { dockerId, serverId } = ownProps.match.params;
     const docker: IDockerAfterParse | undefined = getDockerFromList(state.docker.servers, dockerId, serverId);
@@ -24,6 +24,7 @@ const mapStateToProps = (state: IState, ownProps: any) => {
     };
 };
 
+// tslint:disable-next-line:no-any
 const mapDispatchToProps = (dispatch: any) => {
     return {
         getStatsForDocker: (URL: string, dockerId: string) => dispatch(getStatsForDocker(URL, dockerId)),

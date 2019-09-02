@@ -16,6 +16,7 @@ const mapStateToProps = (state: IState) => {
   };
 };
 
+// tslint:disable-next-line:no-any
 const mapDispatchToProps = (dispatch: any) => {
   return {
     getDockersFromDefinedServers: () => dispatch(getDockersFromDefinedServers()),

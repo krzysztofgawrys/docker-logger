@@ -6,13 +6,13 @@ export const parser = (data: IDocker[], URL: string) => {
     if (data) {
         return data.reduce((memo: IDockerAfterParse[], item: IDocker) => {
             memo.push({
+                URL,
                 id: item.Id,
                 name: (item.Names.join()).substring(1),
                 state: item.State,
                 status: item.Status,
                 ports: item.Ports,
-                network: item.NetworkSettings.Networks,
-                URL
+                network: item.NetworkSettings.Networks
             });
             return memo;
         }, []);
@@ -49,8 +49,8 @@ export const metricParser = (metrics: IMetricFromDocker) => {
     let received = 0;
     let sent = 0;
     if (networks) {
-        Object.keys(networks).
-            map((inteface) => {
+        Object.keys(networks)
+            .map((inteface) => {
                 received += networks[inteface].rx_bytes;
                 sent += networks[inteface].tx_bytes;
                 return true;

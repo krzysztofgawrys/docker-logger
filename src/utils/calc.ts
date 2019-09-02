@@ -1,4 +1,4 @@
-import { IMetricCPU } from "../interfaces/docker";
+import { IMetricCPU } from '../interfaces/docker';
 
 export const bytesToSize = (bytes: number) => {
     const sizes = [
@@ -30,9 +30,9 @@ export const calculateCPUPercent = (precpuStats: IMetricCPU, cpuStats: IMetricCP
         cpuPercent = (cpuDelta / systemDelta) * (cpuStats.cpu_usage.percpu_usage).length * 100.0;
     }
     const ret = {
+        cpuPercent,
         max: systemDelta,
-        value: cpuDelta * (cpuStats.cpu_usage.percpu_usage).length,
-        cpuPercent
+        value: cpuDelta * (cpuStats.cpu_usage.percpu_usage).length
     };
     return ret;
 };

@@ -10,7 +10,6 @@ import Container from '@material-ui/core/Container';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import { mainListItems } from '../components/listItems';
 import Header from './header';
-import Footer from './footer';
 
 interface IndexProps {
   children: JSX.Element[] | JSX.Element

@@ -8,10 +8,10 @@ const metricInitial = {
     memory: [
         {
             limit: 0,
-            limitText: "",
+            limitText: '',
             percUsage: 0,
             usage: 0,
-            usingText: ""
+            usingText: ''
         }
     ],
     networksData: [{

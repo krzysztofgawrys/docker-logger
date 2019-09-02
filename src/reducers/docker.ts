@@ -47,7 +47,7 @@ const docker = (state = initialState, action: AnyAction) => {
 
             const { dockerId } = action;
             let metric: IMetric = state.metric && state.metric[dockerId] ? state.metric[dockerId] : metricInitial;
-            //@ts-ignore
+            // @ts-ignore
             Object.keys(action.metric).forEach((key: IType) => {
                 metric = { ...metric, [key]: [...metric[key], action.metric[key]] };
             });
