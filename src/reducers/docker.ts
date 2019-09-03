@@ -7,14 +7,14 @@ interface IInitialState {
     servers: IServer[],
     message: string,
     metric?: IMetricForDocker
-};
+}
 
 enum IType {
     cpu = 'cpu',
     memory = 'memory',
     networksData = 'networksData',
     pids = 'pids'
-};
+}
 
 
 
