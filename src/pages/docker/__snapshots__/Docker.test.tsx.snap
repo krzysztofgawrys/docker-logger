@@ -1,0 +1,1099 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing 1`] = `
+<div>
+  <h2
+    className="MuiTypography-root MuiTypography-h3 MuiTypography-gutterBottom"
+  />
+  <div
+    aria-labelledby="simple-tab-0"
+    className="MuiTypography-root makeStyles-box-31 MuiTypography-body1"
+    hidden={false}
+    id="simple-tabpanel-0"
+    role="tabpanel"
+  >
+    <div
+      className="MuiBox-root MuiBox-root-33"
+    >
+      <div>
+        <button
+          className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
+          disabled={false}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={0}
+          type="button"
+        >
+          <span
+            className="MuiButton-label"
+          >
+            Save logs
+            <svg
+              aria-hidden="true"
+              className="MuiSvgIcon-root makeStyles-rightIcon-35"
+              focusable="false"
+              role="presentation"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"
+              />
+            </svg>
+          </span>
+          <span
+            className="MuiTouchRipple-root"
+          />
+        </button>
+      </div>
+      <div
+        className="makeStyles-dockerBox-34"
+      >
+        <div
+          className="react-lazylog-searchbar _3hsz3SFOTsWryCiRA9Mjtq"
+        >
+          <input
+            autoComplete="off"
+            className="react-lazylog-searchbar-input _2JObJsQyVcVoB1YD6078ip"
+            disabled={true}
+            name="search"
+            onChange={[Function]}
+            onKeyPress={[Function]}
+            placeholder="Search"
+            type="text"
+            value=""
+          />
+          <button
+            className="react-lazylog-searchbar-filter inactive qZaVIaYTJWY-GaoXJJ2Cp _3cXa-36GYrmnrGIXEg46cX"
+            disabled={true}
+            onClick={[Function]}
+          >
+            <svg
+              className="_1lq6olr9h2p7MJDCA8c-aL"
+              viewBox="0 0 286.054 286.054"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M8.939 44.696h178.784a8.931 8.931 0 0 0 8.939-8.939V8.939A8.937 8.937 0 0 0 187.723 0H8.939C4.005 0 0 4.005 0 8.939v26.818c0 4.934 4.005 8.939 8.939 8.939zm268.176 35.757H8.939C4.005 80.453 0 84.457 0 89.392v26.818a8.937 8.937 0 0 0 8.939 8.939h268.176a8.931 8.931 0 0 0 8.939-8.939V89.392a8.936 8.936 0 0 0-8.939-8.939zM8.939 205.601h178.784a8.931 8.931 0 0 0 8.939-8.939v-26.818a8.931 8.931 0 0 0-8.939-8.939H8.939A8.937 8.937 0 0 0 0 169.844v26.818a8.937 8.937 0 0 0 8.939 8.939zm268.176 35.757H8.939A8.937 8.937 0 0 0 0 250.297v26.818a8.937 8.937 0 0 0 8.939 8.939h268.176a8.931 8.931 0 0 0 8.939-8.939v-26.818a8.931 8.931 0 0 0-8.939-8.939z"
+              />
+            </svg>
+          </button>
+          <span
+            className="react-lazylog-searchbar-matches inactive _3cXa-36GYrmnrGIXEg46cX"
+          >
+            0
+             
+            matches
+          </span>
+        </div>
+        <div
+          style={
+            Object {
+              "height": 0,
+              "overflow": "visible",
+              "width": 0,
+            }
+          }
+        >
+          <div
+            aria-label="grid"
+            aria-readonly={true}
+            className="ReactVirtualized__Grid ReactVirtualized__List react-lazylog _3NRgTLvWbyfWD-1xileYWR"
+            onScroll={[Function]}
+            role="grid"
+            style={
+              Object {
+                "WebkitOverflowScrolling": "touch",
+                "boxSizing": "border-box",
+                "direction": "ltr",
+                "height": -45,
+                "overflowX": "hidden",
+                "overflowY": "auto",
+                "position": "relative",
+                "width": 0,
+                "willChange": "transform",
+              }
+            }
+            tabIndex={0}
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    aria-labelledby="simple-tab-1"
+    className="MuiTypography-root makeStyles-box-31 MuiTypography-body1"
+    hidden={true}
+    id="simple-tabpanel-1"
+    role="tabpanel"
+  >
+    <div
+      className="MuiBox-root MuiBox-root-65"
+    >
+      <div
+        className="makeStyles-terminal-66"
+      >
+        <div
+          className="terminal-base sc-bdVaJa gSZAyM"
+        >
+          <div
+            style={
+              Object {
+                "animation": "fadeIn 0.18s ease-in",
+                "color": "white",
+                "fontFamily": "'Inconsolata', monospace",
+                "fontSize": "0.9em",
+                "height": "100%",
+              }
+            }
+          >
+            <div
+              className="sc-jTzLTM lfnIny"
+              style={
+                Object {
+                  "maxWidth": "100%",
+                }
+              }
+            >
+              <div
+                className="sc-cSHVUG iWWnLG"
+                onClick={[Function]}
+                onFocus={[Function]}
+                tabIndex={0}
+                title="bash"
+              >
+                bash
+              </div>
+              <div
+                className="sc-fjdhpX ghCJNo"
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+              >
+                <div
+                  className="sc-kAzzGY hjGnyC"
+                  onClick={[Function]}
+                >
+                  +
+                </div>
+              </div>
+            </div>
+            <div
+              className="sc-EHOje kWTecu"
+              onKeyUp={[Function]}
+              style={
+                Object {
+                  "maxHeight": "calc(100% - 30px)",
+                  "maxWidth": "100%",
+                  "overflowY": "auto",
+                }
+              }
+              tabIndex="0"
+            >
+              <div
+                className="sc-gZMcBi cwkXTh"
+              >
+                <div
+                  className="sc-gqjmRU gAcuTz"
+                >
+                  <div
+                    className="sc-VigVT bYwkqd"
+                  >
+                    <pre
+                      className="sc-gzVnrw ihWlDo"
+                    >
+                      You can enter a commands
+                    </pre>
+                    <div
+                      className="sc-htoDjs iQSzyY"
+                    >
+                      <span
+                        className="sc-dnqmqq iutDoC"
+                      >
+                        &gt;
+                      </span>
+                      <input
+                        className="sc-iwsKbI kDZeDe"
+                        onKeyDown={[Function]}
+                        onKeyPress={[Function]}
+                        tabIndex="-1"
+                        type="text"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    aria-labelledby="simple-tab-2"
+    className="MuiTypography-root makeStyles-box-31 MuiTypography-body1"
+    hidden={true}
+    id="simple-tabpanel-2"
+    role="tabpanel"
+  >
+    <div
+      className="MuiBox-root MuiBox-root-67"
+    >
+      <div
+        className="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
+      >
+        <div
+          className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 MuiGrid-grid-lg-4"
+        >
+          <h4
+            className="MuiTypography-root makeStyles-header-69 MuiTypography-h4 MuiTypography-gutterBottom"
+          >
+            Network
+          </h4>
+          <div
+            className="recharts-wrapper"
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            onMouseMove={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            style={
+              Object {
+                "cursor": "default",
+                "height": 200,
+                "position": "relative",
+                "width": 500,
+              }
+            }
+          >
+            <svg
+              className="recharts-surface"
+              height={200}
+              version="1.1"
+              viewBox="0 0 500 200"
+              width={500}
+            >
+              <defs>
+                <clipPath
+                  id="recharts3-clip"
+                >
+                  <rect
+                    height={160}
+                    width={410}
+                    x={60}
+                    y={10}
+                  />
+                </clipPath>
+              </defs>
+              <g
+                className="recharts-cartesian-grid"
+              >
+                <g
+                  className="recharts-cartesian-grid-horizontal"
+                >
+                  <line
+                    fill="none"
+                    height={160}
+                    stroke="#ccc"
+                    strokeDasharray="3 3"
+                    width={410}
+                    x={60}
+                    x1={60}
+                    x2={470}
+                    y={10}
+                    y1={170}
+                    y2={170}
+                  />
+                  <line
+                    fill="none"
+                    height={160}
+                    stroke="#ccc"
+                    strokeDasharray="3 3"
+                    width={410}
+                    x={60}
+                    x1={60}
+                    x2={470}
+                    y={10}
+                    y1={122}
+                    y2={122}
+                  />
+                  <line
+                    fill="none"
+                    height={160}
+                    stroke="#ccc"
+                    strokeDasharray="3 3"
+                    width={410}
+                    x={60}
+                    x1={60}
+                    x2={470}
+                    y={10}
+                    y1={74}
+                    y2={74}
+                  />
+                  <line
+                    fill="none"
+                    height={160}
+                    stroke="#ccc"
+                    strokeDasharray="3 3"
+                    width={410}
+                    x={60}
+                    x1={60}
+                    x2={470}
+                    y={10}
+                    y1={10}
+                    y2={10}
+                  />
+                </g>
+                <g
+                  className="recharts-cartesian-grid-vertical"
+                >
+                  <line
+                    fill="none"
+                    height={160}
+                    stroke="#ccc"
+                    strokeDasharray="3 3"
+                    width={410}
+                    x={60}
+                    x1={265}
+                    x2={265}
+                    y={10}
+                    y1={10}
+                    y2={170}
+                  />
+                  <line
+                    fill="none"
+                    height={160}
+                    stroke="#ccc"
+                    strokeDasharray="3 3"
+                    width={410}
+                    x={60}
+                    x1={60}
+                    x2={60}
+                    y={10}
+                    y1={10}
+                    y2={170}
+                  />
+                  <line
+                    fill="none"
+                    height={160}
+                    stroke="#ccc"
+                    strokeDasharray="3 3"
+                    width={410}
+                    x={60}
+                    x1={470}
+                    x2={470}
+                    y={10}
+                    y1={10}
+                    y2={170}
+                  />
+                </g>
+              </g>
+              <g
+                className="recharts-layer recharts-cartesian-axis recharts-xAxis xAxis"
+              >
+                <line
+                  className="recharts-cartesian-axis-line"
+                  fill="none"
+                  height={30}
+                  stroke="#666"
+                  width={410}
+                  x={60}
+                  x1={60}
+                  x2={470}
+                  y={170}
+                  y1={170}
+                  y2={170}
+                />
+                <g
+                  className="recharts-cartesian-axis-ticks"
+                >
+                  <g
+                    className="recharts-layer recharts-cartesian-axis-tick"
+                  >
+                    <line
+                      className="recharts-cartesian-axis-tick-line"
+                      fill="none"
+                      height={30}
+                      stroke="#666"
+                      width={410}
+                      x={60}
+                      x1={265}
+                      x2={265}
+                      y={170}
+                      y1={176}
+                      y2={170}
+                    />
+                    <text
+                      className="recharts-text recharts-cartesian-axis-tick-value"
+                      fill="#666"
+                      height={30}
+                      stroke="none"
+                      textAnchor="middle"
+                      width={410}
+                      x={265}
+                      y={178}
+                    >
+                      <tspan
+                        dy="0.71em"
+                        x={265}
+                      >
+                        0
+                      </tspan>
+                    </text>
+                  </g>
+                </g>
+              </g>
+              <g
+                className="recharts-layer recharts-cartesian-axis recharts-yAxis yAxis"
+              >
+                <line
+                  className="recharts-cartesian-axis-line"
+                  fill="none"
+                  height={160}
+                  stroke="#666"
+                  width={60}
+                  x={0}
+                  x1={60}
+                  x2={60}
+                  y={10}
+                  y1={10}
+                  y2={170}
+                />
+                <g
+                  className="recharts-cartesian-axis-ticks"
+                >
+                  <g
+                    className="recharts-layer recharts-cartesian-axis-tick"
+                  >
+                    <line
+                      className="recharts-cartesian-axis-tick-line"
+                      fill="none"
+                      height={160}
+                      stroke="#666"
+                      width={60}
+                      x={0}
+                      x1={54}
+                      x2={60}
+                      y={10}
+                      y1={170}
+                      y2={170}
+                    />
+                    <text
+                      className="recharts-text recharts-cartesian-axis-tick-value"
+                      fill="#666"
+                      height={160}
+                      stroke="none"
+                      textAnchor="end"
+                      width={60}
+                      x={52}
+                      y={170}
+                    >
+                      <tspan
+                        dy="0.355em"
+                        x={52}
+                      >
+                        0
+                      </tspan>
+                    </text>
+                  </g>
+                  <g
+                    className="recharts-layer recharts-cartesian-axis-tick"
+                  >
+                    <line
+                      className="recharts-cartesian-axis-tick-line"
+                      fill="none"
+                      height={160}
+                      stroke="#666"
+                      width={60}
+                      x={0}
+                      x1={54}
+                      x2={60}
+                      y={10}
+                      y1={122}
+                      y2={122}
+                    />
+                    <text
+                      className="recharts-text recharts-cartesian-axis-tick-value"
+                      fill="#666"
+                      height={160}
+                      stroke="none"
+                      textAnchor="end"
+                      width={60}
+                      x={52}
+                      y={122}
+                    >
+                      <tspan
+                        dy="0.355em"
+                        x={52}
+                      >
+                        3
+                      </tspan>
+                    </text>
+                  </g>
+                  <g
+                    className="recharts-layer recharts-cartesian-axis-tick"
+                  >
+                    <line
+                      className="recharts-cartesian-axis-tick-line"
+                      fill="none"
+                      height={160}
+                      stroke="#666"
+                      width={60}
+                      x={0}
+                      x1={54}
+                      x2={60}
+                      y={10}
+                      y1={74}
+                      y2={74}
+                    />
+                    <text
+                      className="recharts-text recharts-cartesian-axis-tick-value"
+                      fill="#666"
+                      height={160}
+                      stroke="none"
+                      textAnchor="end"
+                      width={60}
+                      x={52}
+                      y={74}
+                    >
+                      <tspan
+                        dy="0.355em"
+                        x={52}
+                      >
+                        6
+                      </tspan>
+                    </text>
+                  </g>
+                  <g
+                    className="recharts-layer recharts-cartesian-axis-tick"
+                  >
+                    <line
+                      className="recharts-cartesian-axis-tick-line"
+                      fill="none"
+                      height={160}
+                      stroke="#666"
+                      width={60}
+                      x={0}
+                      x1={54}
+                      x2={60}
+                      y={10}
+                      y1={10}
+                      y2={10}
+                    />
+                    <text
+                      className="recharts-text recharts-cartesian-axis-tick-value"
+                      fill="#666"
+                      height={160}
+                      stroke="none"
+                      textAnchor="end"
+                      width={60}
+                      x={52}
+                      y={10}
+                    >
+                      <tspan
+                        dy="0.355em"
+                        x={52}
+                      >
+                        10
+                      </tspan>
+                    </text>
+                  </g>
+                </g>
+              </g>
+              <g
+                className="recharts-layer recharts-area"
+              >
+                <g
+                  className="recharts-layer recharts-area-dots"
+                  clipPath={null}
+                >
+                  <circle
+                    className="recharts-dot recharts-area-dot"
+                    cx={265}
+                    cy={170}
+                    fill="#8884d8"
+                    fillOpacity={0.6}
+                    height={160}
+                    r={3}
+                    stroke="#8884d8"
+                    width={410}
+                  />
+                </g>
+              </g>
+              <g
+                className="recharts-layer recharts-area"
+              >
+                <g
+                  className="recharts-layer recharts-area-dots"
+                  clipPath={null}
+                >
+                  <circle
+                    className="recharts-dot recharts-area-dot"
+                    cx={265}
+                    cy={170}
+                    fill="#82ca9d"
+                    fillOpacity={0.6}
+                    height={160}
+                    r={3}
+                    stroke="#82ca9d"
+                    width={410}
+                  />
+                </g>
+              </g>
+            </svg>
+            <div
+              className="recharts-legend-wrapper"
+              style={
+                Object {
+                  "height": 36,
+                  "left": 0,
+                  "position": "absolute",
+                  "top": 10,
+                  "width": 470,
+                }
+              }
+            >
+              <ul
+                className="recharts-default-legend"
+                style={
+                  Object {
+                    "margin": 0,
+                    "padding": 0,
+                    "textAlign": "center",
+                  }
+                }
+              >
+                <li
+                  className="recharts-legend-item legend-item-0"
+                  style={
+                    Object {
+                      "display": "inline-block",
+                      "marginRight": 10,
+                    }
+                  }
+                >
+                  <svg
+                    className="recharts-surface"
+                    height={14}
+                    style={
+                      Object {
+                        "display": "inline-block",
+                        "marginRight": 4,
+                        "verticalAlign": "middle",
+                      }
+                    }
+                    version="1.1"
+                    viewBox="0 0 32 32"
+                    width={14}
+                  >
+                    <path
+                      className="recharts-legend-icon"
+                      d="M0,16h10.666666666666666
+            A5.333333333333333,5.333333333333333,0,1,1,21.333333333333332,16
+            H32M21.333333333333332,16
+            A5.333333333333333,5.333333333333333,0,1,1,10.666666666666666,16"
+                      fill="none"
+                      stroke="#8884d8"
+                      strokeWidth={4}
+                    />
+                  </svg>
+                  <span
+                    className="recharts-legend-item-text"
+                  >
+                    <span
+                      style={
+                        Object {
+                          "color": "#8884d8",
+                        }
+                      }
+                    >
+                      received
+                       data (MB)
+                    </span>
+                  </span>
+                </li>
+                <li
+                  className="recharts-legend-item legend-item-1"
+                  style={
+                    Object {
+                      "display": "inline-block",
+                      "marginRight": 10,
+                    }
+                  }
+                >
+                  <svg
+                    className="recharts-surface"
+                    height={14}
+                    style={
+                      Object {
+                        "display": "inline-block",
+                        "marginRight": 4,
+                        "verticalAlign": "middle",
+                      }
+                    }
+                    version="1.1"
+                    viewBox="0 0 32 32"
+                    width={14}
+                  >
+                    <path
+                      className="recharts-legend-icon"
+                      d="M0,16h10.666666666666666
+            A5.333333333333333,5.333333333333333,0,1,1,21.333333333333332,16
+            H32M21.333333333333332,16
+            A5.333333333333333,5.333333333333333,0,1,1,10.666666666666666,16"
+                      fill="none"
+                      stroke="#82ca9d"
+                      strokeWidth={4}
+                    />
+                  </svg>
+                  <span
+                    className="recharts-legend-item-text"
+                  >
+                    <span
+                      style={
+                        Object {
+                          "color": "#82ca9d",
+                        }
+                      }
+                    >
+                      sent
+                       data (MB)
+                    </span>
+                  </span>
+                </li>
+              </ul>
+            </div>
+            <div
+              className="recharts-tooltip-wrapper"
+              style={
+                Object {
+                  "MozTransform": "translate(undefinedpx, undefinedpx)",
+                  "OTransform": "translate(undefinedpx, undefinedpx)",
+                  "WebkitTransform": "translate(undefinedpx, undefinedpx)",
+                  "msTransform": "translate(undefinedpx, undefinedpx)",
+                  "pointerEvents": "none",
+                  "position": "absolute",
+                  "top": 0,
+                  "transform": "translate(undefinedpx, undefinedpx)",
+                  "visibility": "hidden",
+                }
+              }
+            >
+              <div
+                className="recharts-default-tooltip"
+                style={
+                  Object {
+                    "backgroundColor": "#fff",
+                    "border": "1px solid #ccc",
+                    "margin": 0,
+                    "padding": 10,
+                    "whiteSpace": "nowrap",
+                  }
+                }
+              >
+                <p
+                  className="recharts-tooltip-label"
+                  style={
+                    Object {
+                      "margin": 0,
+                    }
+                  }
+                >
+                  
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 MuiGrid-grid-lg-4"
+        >
+          <h4
+            className="MuiTypography-root makeStyles-header-69 MuiTypography-h4 MuiTypography-gutterBottom"
+          >
+            Processor
+          </h4>
+          <svg
+            className="CircularProgressbar makeStyles-circleChart-68"
+            data-test-id="CircularProgressbar"
+            style={Object {}}
+            viewBox="0 0 100 100"
+          >
+            <path
+              className="CircularProgressbar-trail"
+              d="
+      M 50,50
+      m 0,-46
+      a 46,46 0 1 1 0,92
+      a 46,46 0 1 1 0,-92
+    "
+              fillOpacity={0}
+              strokeWidth={8}
+              style={
+                Object {
+                  "strokeDasharray": "289.02652413026095px 289.02652413026095px",
+                  "strokeDashoffset": "0px",
+                  "strokeLinecap": "butt",
+                }
+              }
+            />
+            <path
+              className="CircularProgressbar-path"
+              d="
+      M 50,50
+      m 0,-46
+      a 46,46 0 1 1 0,92
+      a 46,46 0 1 1 0,-92
+    "
+              fillOpacity={0}
+              strokeWidth={8}
+              style={
+                Object {
+                  "strokeDasharray": "289.02652413026095px 289.02652413026095px",
+                  "strokeDashoffset": "289.02652413026095px",
+                  "strokeLinecap": "butt",
+                }
+              }
+            />
+            <text
+              className="CircularProgressbar-text"
+              style={Object {}}
+              x={50}
+              y={50}
+            >
+              0 %
+            </text>
+          </svg>
+        </div>
+        <div
+          className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 MuiGrid-grid-lg-4"
+        >
+          <h4
+            className="MuiTypography-root makeStyles-header-69 MuiTypography-h4 MuiTypography-gutterBottom"
+          >
+            Memory
+          </h4>
+          <svg
+            className="CircularProgressbar makeStyles-circleChart-68"
+            data-test-id="CircularProgressbar"
+            style={Object {}}
+            viewBox="0 0 100 100"
+          >
+            <path
+              className="CircularProgressbar-trail"
+              d="
+      M 50,50
+      m 0,-46
+      a 46,46 0 1 1 0,92
+      a 46,46 0 1 1 0,-92
+    "
+              fillOpacity={0}
+              strokeWidth={8}
+              style={
+                Object {
+                  "strokeDasharray": "289.02652413026095px 289.02652413026095px",
+                  "strokeDashoffset": "0px",
+                  "strokeLinecap": "butt",
+                }
+              }
+            />
+            <path
+              className="CircularProgressbar-path"
+              d="
+      M 50,50
+      m 0,-46
+      a 46,46 0 1 1 0,92
+      a 46,46 0 1 1 0,-92
+    "
+              fillOpacity={0}
+              strokeWidth={8}
+              style={
+                Object {
+                  "strokeDasharray": "289.02652413026095px 289.02652413026095px",
+                  "strokeDashoffset": "289.02652413026095px",
+                  "strokeLinecap": "butt",
+                }
+              }
+            />
+            <text
+              className="CircularProgressbar-text"
+              style={Object {}}
+              x={50}
+              y={50}
+            >
+              0 %
+            </text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+  <header
+    className="MuiPaper-root MuiPaper-elevation4 MuiAppBar-root MuiAppBar-positionFixed MuiAppBar-colorPrimary mui-fixed"
+    style={
+      Object {
+        "bottom": 0,
+        "top": "auto",
+      }
+    }
+  >
+    <div
+      className="MuiBottomNavigation-root"
+    >
+      <button
+        className="MuiButtonBase-root MuiBottomNavigationAction-root Mui-selected"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex={0}
+        type="button"
+      >
+        <span
+          className="MuiBottomNavigationAction-wrapper"
+        >
+          <svg
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<path d=\\"M2.2 9.758h2.244v2.183H2.2V9.759zm2.754 0H7.2v2.183H4.954V9.759zm0-2.797H7.2v2.181H4.954v-2.18zm2.754 2.797h2.245v2.183H7.708V9.759zm0-2.797h2.245v2.181H7.708v-2.18zm2.754 2.797h2.245v2.183h-2.245V9.759zm0-2.797h2.245v2.181h-2.245v-2.18zm2.754 2.797h2.245v2.183h-2.245V9.759zm-2.754-5.595h2.245v2.181h-2.245V4.163zM5.335 15.09c.345 0 .625.273.625.609 0 .335-.28.607-.625.607a.617.617 0 0 1-.626-.608c0-.335.28-.608.626-.608zm17.356-4.204l.309.173-.162.309c-.638 1.209-1.97 1.583-3.272 1.517-1.949 4.718-6.192 6.951-11.337 6.951-2.657 0-5.096-.965-6.484-3.258l-.023-.037-.203-.4C1.05 15.134.894 14.028 1 12.924l.032-.33h14.767a5.08 5.08 0 0 0 1.565-.255l.76-.335c-.318-.402-.48-.912-.528-1.414-.064-.682.077-1.57.552-2.105l.238-.266.281.22c.71.555 1.307 1.329 1.412 2.212.855-.245 1.858-.187 2.612.236zM5.335 16.853c.655 0 1.188-.518 1.188-1.154 0-.637-.533-1.154-1.188-1.154-.655 0-1.188.518-1.188 1.154 0 .636.533 1.154 1.188 1.154z\\" fill=\\"currentColor\\"/>",
+              }
+            }
+            focusable={false}
+            height={25}
+            preserveAspectRatio="xMidYMid meet"
+            style={
+              Object {
+                "transform": "rotate(360deg)",
+              }
+            }
+            viewBox="0 0 24 24"
+            width={25}
+            xmlns="http://www.w3.org/2000/svg"
+          />
+          <span
+            className="MuiBottomNavigationAction-label Mui-selected"
+          >
+            Logs
+          </span>
+        </span>
+        <span
+          className="MuiTouchRipple-root"
+        />
+      </button>
+      <button
+        className="MuiButtonBase-root MuiBottomNavigationAction-root"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex={0}
+        type="button"
+      >
+        <span
+          className="MuiBottomNavigationAction-wrapper"
+        >
+          <svg
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<path d=\\"M19.999 18.998v-12h-16V19h16zm0-16a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-16a2 2 0 0 1-2-2v-14a2 2 0 0 1 2-2h16zM13 17v-2h5v2h-5zm-3.42-3.99L5.57 9H8.4l3.302 3.302a1 1 0 0 1 0 1.415L8.418 17H5.59l3.99-3.99z\\" fill=\\"currentColor\\"/>",
+              }
+            }
+            focusable={false}
+            height={25}
+            preserveAspectRatio="xMidYMid meet"
+            style={
+              Object {
+                "transform": "rotate(360deg)",
+              }
+            }
+            viewBox="0 0 24 24"
+            width={25}
+            xmlns="http://www.w3.org/2000/svg"
+          />
+          <span
+            className="MuiBottomNavigationAction-label"
+          >
+            Terminal
+          </span>
+        </span>
+        <span
+          className="MuiTouchRipple-root"
+        />
+      </button>
+      <button
+        className="MuiButtonBase-root MuiBottomNavigationAction-root"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex={0}
+        type="button"
+      >
+        <span
+          className="MuiBottomNavigationAction-wrapper"
+        >
+          <svg
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<path d=\\"M16.007 11.778l4.233-7.332 1.732 1-5.233 9.064-6.512-3.76L5.464 19H22v2H2V3h2v14.536l5.495-9.518 6.512 3.76z\\" fill=\\"currentColor\\"/>",
+              }
+            }
+            focusable={false}
+            height={25}
+            preserveAspectRatio="xMidYMid meet"
+            style={
+              Object {
+                "transform": "rotate(360deg)",
+              }
+            }
+            viewBox="0 0 24 24"
+            width={25}
+            xmlns="http://www.w3.org/2000/svg"
+          />
+          <span
+            className="MuiBottomNavigationAction-label"
+          >
+            Metrics
+          </span>
+        </span>
+        <span
+          className="MuiTouchRipple-root"
+        />
+      </button>
+    </div>
+  </header>
+</div>
+`;

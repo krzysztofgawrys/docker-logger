@@ -22,7 +22,6 @@ interface DockerProps extends RouteComponentProps<any> {
 const Docker: React.SFC<DockerProps> = (props: DockerProps) => {
 
     const [value, setValue] = React.useState(0);
-
     const { docker } = props;
     const METRIC_ID = 2;
     return (

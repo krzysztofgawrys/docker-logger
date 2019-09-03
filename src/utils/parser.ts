@@ -50,7 +50,7 @@ export const metricParser = (metrics: IMetricFromDocker) => {
     let sent = 0;
     if (networks) {
         Object.keys(networks)
-            .map((inteface) => {
+            .forEach((inteface) => {
                 received += networks[inteface].rx_bytes;
                 sent += networks[inteface].tx_bytes;
                 return true;
