@@ -55,7 +55,7 @@ export const getDockersFromDefinedServers = () => {
     return (dispatch: Dispatch, getState: Function) => {
         const state = getState();
         if (config && !(state.docker && state.docker.servers.length)) {
-            config.map(server => {
+            config.forEach(server => {
                 return fetchDataFromURL(`${server.URL}${LIST_OF_CONTAINERS}`)
                     .then((data) => {
                         const dockers = parser(data.data, server.URL);

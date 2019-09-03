@@ -7,24 +7,41 @@ import { Link } from 'react-router-dom';
 
 import IconWrapper from '../components/iconWrapper';
 import DockerIcon from '@iconify/icons-mdi/docker';
+import { createStyles, Theme, makeStyles } from '@material-ui/core';
 
-export const mainListItems = (
-  <div>
-    <Link to={'/'}>
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    link: {
+      textDecoration: 'none',
+      color: theme.palette.common.black
+    },
+  }),
+);
+
+const ListItems: React.SFC = () => {
+
+  const classes = useStyles();
+
+  return (
+    <>
+      <Link className={classes.link} to={'/'}>
+        <ListItem button>
+          <ListItemIcon>
+            <IconWrapper
+              icon={DockerIcon}
+            />
+          </ListItemIcon>
+          <ListItemText primary="Dockers" />
+        </ListItem>
+      </Link>
       <ListItem button>
         <ListItemIcon>
-          <IconWrapper
-            icon={DockerIcon}
-          />
+          <InfoIcon />
         </ListItemIcon>
-        <ListItemText primary="Dockers" />
+        <ListItemText primary="Info" />
       </ListItem>
-    </Link>
-    <ListItem button>
-      <ListItemIcon>
-        <InfoIcon />
-      </ListItemIcon>
-      <ListItemText primary="Info" />
-    </ListItem>
-  </div>
-);
+    </>
+  )
+};
+
+export default ListItems;

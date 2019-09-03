@@ -2,27 +2,13 @@ import React from 'react';
 import clsx from 'clsx';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-import { Theme, createStyles, makeStyles } from '@material-ui/core';
 import Server from '../../components/server';
 import { IServer } from '../../interfaces/docker';
+import useStyles from './styles';
 
 interface Props {
   servers?: IServer[]
 }
-
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    paper: {
-      padding: theme.spacing(2),
-      display: 'flex',
-      overflow: 'auto',
-      flexDirection: 'column',
-    },
-    fixedHeight: {
-      height: 'auto',
-    },
-  }),
-);
 
 const Home: React.SFC<Props> = (props: Props) => {
 
