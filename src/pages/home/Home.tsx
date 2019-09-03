@@ -14,15 +14,15 @@ const Home: React.SFC<Props> = (props: Props) => {
 
   const classes = useStyles();
   const { servers } = props;
-  const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
+  const fixedHeightPaper = clsx(classes.wrapper, classes.fixedHeight);
 
   return (
     <Grid container spacing={3}>
       {/* Chart */}
       <Grid item xs={12} md={8} lg={9}>
-        <Paper className={fixedHeightPaper}>
+        <div className={classes.wrapper}>
           {servers && servers.map((server, index) => <Server key={`${server.name}${index}`} server={server} index={index} />)}
-        </Paper>
+        </div>
       </Grid>
       {/* Recent Deposits */}
       <Grid item xs={12} md={4} lg={3}>
