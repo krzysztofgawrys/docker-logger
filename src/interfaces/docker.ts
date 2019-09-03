@@ -96,7 +96,7 @@ export interface ICPUMetric {
     percUsage: number,
     system_cpu: number,
     total_usage: number
-};
+}
 
 export interface IMemoryMetric {
     limit: number,
@@ -104,12 +104,12 @@ export interface IMemoryMetric {
     percUsage: number,
     usage: number,
     usingText: string
-};
+}
 
 export interface INetworkMetric {
     received: number,
     sent: number
-};
+}
 
 export interface IMetric {
     cpu: ICPUMetric[],
