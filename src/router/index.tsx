@@ -2,8 +2,6 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from '../pages/home';
 import Docker from '../pages/docker';
-
-import Breadcrumbs from '../components/breadcrumbs';
 import Layout from '../layout';
 
 

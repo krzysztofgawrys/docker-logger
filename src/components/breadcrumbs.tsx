@@ -4,7 +4,6 @@ import Breadcrumbs from '@material-ui/core/Breadcrumbs';
 import { Paper, Theme, makeStyles, createStyles } from '@material-ui/core';
 
 import HomeIcon from '@material-ui/icons/Home';
-import WhatshotIcon from '@material-ui/icons/Whatshot';
 import grayColor from '@material-ui/core/colors/grey';
 import IconWrapper from '../components/iconWrapper';
 import DockerIcon from '@iconify/icons-mdi/docker';
