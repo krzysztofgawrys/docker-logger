@@ -28,7 +28,7 @@ const Docker: React.SFC<DockerProps> = (props: DockerProps) => {
         <div>
             {docker &&
                 <>
-                    <Typography variant="h3" component="h2" gutterBottom>
+                    <Typography variant="h4" component="h2" gutterBottom={true}>
                         {docker.name}
                     </Typography>
                     <TabPanel value={value} index={0}>

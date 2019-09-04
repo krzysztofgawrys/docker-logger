@@ -48,7 +48,7 @@ const DockerBox: React.SFC<DockerBoxProps> = (props) => {
                             </Avatar>
                         }
                         label={docker.name}
-                        clickable
+                        clickable={true}
                         className={classes.chip}
                         color={getColor(docker.state)}
                         deleteIcon={<DoneIcon />}

@@ -870,7 +870,7 @@
   dependencies:
     "@hapi/hoek" "8.x.x"
 
-"@iconify/icons-mdi@^1.0.8":
+"@iconify/icons-mdi@1.0.9":
   version "1.0.9"
   resolved "https://registry.yarnpkg.com/@iconify/icons-mdi/-/icons-mdi-1.0.9.tgz#63faeb99176fddc807a987cdd6190b8387c85a35"
   integrity sha512-i0QmmyOUhprgLZqtJwHaXWy/6EVZ+ggF0ZqlusHn3cub4Hw+aa1Ta9f9XO8eMR3NW+yqPa1VsjQn1h5h3/btLA==

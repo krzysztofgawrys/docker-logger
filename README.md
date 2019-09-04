@@ -31,7 +31,7 @@ server {
 ```
 ### Docker
 If you do not want to install nginx please use dockers
-*  ```docker-compose -f ./docker/nginx.yml up --build``` od use ``sh ./run.sh``
+*  ```docker-compose -f ./docker/docker-compose.yml up --build```
 
 Project include 2 different dockers:
 1. Nginx to serve `Docker Logger` on production mode. (port: `8081`)
