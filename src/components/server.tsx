@@ -19,17 +19,20 @@ const useStyles = makeStyles((theme: Theme) =>
             borderColor: grayColor[300],
             borderBottomStyle: 'solid',
             borderBottomWidth: 1
+        },
+        card: {
+            marginBottom: '2rem'
         }
     }),
 );
 
 
-const Server: React.SFC<ServersProps> = ({ server, index }) => {
+const Server: React.SFC<ServersProps> = ({ server, index }: ServersProps) => {
 
     const classes = useStyles();
 
     return (
-        <Card>
+        <Card className={classes.card}>
             <CardContent>
                 <Typography  className={classes.cardHeader} variant="h5" component="h2">
                     {server.name}

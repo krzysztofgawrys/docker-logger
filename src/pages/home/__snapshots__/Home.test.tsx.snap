@@ -6,20 +6,16 @@ exports[`renders without crashing 1`] = `
 >
   <div
     className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-8 MuiGrid-grid-lg-9"
-  >
-    <div
-      className="makeStyles-wrapper-1"
-    />
-  </div>
+  />
   <div
     className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-md-4 MuiGrid-grid-lg-3"
   >
     <div
-      className="MuiPaper-root MuiPaper-elevation1 makeStyles-wrapper-1 makeStyles-fixedHeight-2 MuiPaper-rounded"
+      className="MuiPaper-root MuiPaper-elevation1 makeStyles-fixedHeight-1 MuiPaper-rounded"
     >
-      <div>
-        PLACE FOR THIS 2
-      </div>
+      <ul
+        className="MuiList-root MuiList-padding"
+      />
     </div>
   </div>
 </div>
