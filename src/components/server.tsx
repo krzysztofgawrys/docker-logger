@@ -1,7 +1,7 @@
 import { IServer } from "../interfaces/docker";
 import React from 'react';
 import DockerBox from './dockerBox';
-import { Card, CardContent, Typography, CardActions, Button, makeStyles, Theme, createStyles } from "@material-ui/core";
+import { Card, CardContent, Typography, makeStyles, Theme, createStyles } from "@material-ui/core";
 import grayColor from '@material-ui/core/colors/grey';
 
 interface ServersProps {
@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme: Theme) =>
             marginBottom: theme.spacing(2),
             paddingBottom: theme.spacing(2),
             textAlign: 'center',
-            borderColor: grayColor[500],
+            borderColor: grayColor[300],
             borderBottomStyle: 'solid',
             borderBottomWidth: 1
         }

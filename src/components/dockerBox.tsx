@@ -6,6 +6,7 @@ import { Icon } from '@iconify/react';
 import DockerIcon from '@iconify/icons-mdi/docker';
 import { getColor } from '../utils/status';
 import { createStyles, Theme, makeStyles } from '@material-ui/core/styles';
+import DoneIcon from '@material-ui/icons/Done';
 
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 
@@ -50,6 +51,7 @@ const DockerBox: React.SFC<DockerBoxProps> = (props) => {
                         clickable
                         className={classes.chip}
                         color={getColor(docker.state)}
+                        deleteIcon={<DoneIcon />}
                         onClick={() => handleClick(docker.id)}
                     />
                 ))
