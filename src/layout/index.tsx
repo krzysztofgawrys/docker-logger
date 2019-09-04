@@ -10,6 +10,7 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ListItems from '../components/listItems';
 import Header from './header';
 import useStyles from './styles';
+import Breadcrumbs from '../components/breadcrumbs';
 
 interface IndexProps {
   children: JSX.Element[] | JSX.Element
@@ -47,6 +48,7 @@ const Index: React.SFC<IndexProps> = (props) => {
       </Drawer>
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
+        <Breadcrumbs />
         <Container maxWidth="xl" className={classes.container}>
           {props.children}
         </Container>
