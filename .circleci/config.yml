@@ -10,6 +10,9 @@ jobs:
       - run:
           name: Install Dependencies
           command: yarn
+     - run:
+          name: Install Global Dependencies
+          command: yarn global add audit-ci license-checker
       - save_cache:
           key: v1-yarn-{{ checksum "yarn.lock" }}
           paths:
@@ -23,3 +26,12 @@ jobs:
       - run:
           name: Test app
           command: yarn test
+      - run:
+          name: Security autid
+          command: audit-ci -m
+      - run:
+          name: Outdated verify
+          command: yarn outdated
+      - run:
+          name: License verify
+          command: license-checker --exclude 'MIT, MIT OR X11, BSD, ISC, CC-BY-3.0, CC-BY-4.0, Unlicense, CC0-1.0, Apache-2.0, WTFPL, MPL-2.0, Public Domain, MIT AND Zlib'
