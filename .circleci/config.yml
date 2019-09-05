@@ -10,7 +10,7 @@ jobs:
       - run:
           name: Install Dependencies
           command: yarn
-     - run:
+      - run:
           name: Install Global Dependencies
           command: yarn global add audit-ci license-checker
       - save_cache:
