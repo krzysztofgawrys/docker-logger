@@ -12,7 +12,7 @@ jobs:
           command: yarn
       - run:
           name: Install Global Dependencies
-          command: yarn global add audit-ci license-checker
+          command: sudo yarn global add audit-ci license-checker
       - save_cache:
           key: v1-yarn-{{ checksum "yarn.lock" }}
           paths:
