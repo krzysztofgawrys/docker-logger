@@ -1,7 +1,7 @@
 import { IDocker, IDockerAfterParse, IServer, IMetricFromDocker } from '../interfaces/docker';
 import { calculateCPUPercent, bytesToSize, bytesToMB } from './calc';
 
-export const parser = (data: IDocker[], URL: string) => {
+export const parser = (data: IDocker[], URL: string, FILTER: string) => {
     const ret: IDockerAfterParse[] = [];
     if (data) {
         return data.reduce((memo: IDockerAfterParse[], item: IDocker) => {
